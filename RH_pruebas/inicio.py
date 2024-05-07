@@ -7,6 +7,14 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+@app.route('/gradoAvance')
+def gradoAvance():
+    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3' )
+    cursor = conn.cursor()
+    cursor.execute('select idArea, descripcion from area order by idArea')
+    datos = cursor.fetchall()
+    return render_template("area.html", comentarios = datos)
+
 @app.route('/area')
 def area():
     conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3' )
