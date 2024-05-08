@@ -11,9 +11,50 @@ def home():
 def gradoAvance():
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
-    cursor.execute('select idArea, descripcion from area order by idArea')
+    cursor.execute('select idGradoAvance, descripcion from grado_avance order by idGradoAvance')
     datos = cursor.fetchall()
-    return render_template("area.html", comentarios = datos)
+    return render_template("gradoAvance.html", comentarios = datos)
+
+@app.route('/grado_agregar')
+def grado_agregar():
+    return render_template("grado_agr.html")
+
+
+@app.route('/grado_fagrega', methods=['POST'])
+def grado_fagrega():
+    if request.method == 'POST':
+        desc = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute('insert into grado_avance (descripcion) values (%s)',(desc))
+        conn.commit()
+    return redirect(url_for('gradoAvance'))
+
+@app.route('/grado_editar/<string:id>')
+def grado_editar(id):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('select idGradoAvance, descripcion from grado_avance where idGradoAvance = %s', (id))
+    dato  = cursor.fetchall()
+    return render_template("grado_edi.html", comentar=dato[0])
+
+@app.route('/grado_fedita/<string:id>',methods=['POST'])
+def grado_fedita(id):
+    if request.method == 'POST':
+        desc=request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute('update grado_avance set descripcion=%s where idGradoAvance=%s', (desc,id))
+        conn.commit()
+    return redirect(url_for('gradoAvance'))
+
+@app.route('/grado_borrar/<string:id>')
+def grado_borrar(id):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('delete from grado_avance where idGradoAvance = {0}'.format(id))
+    conn.commit()
+    return redirect(url_for('gradoAvance'))
 
 @app.route('/area')
 def area():
