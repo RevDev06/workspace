@@ -7,6 +7,7 @@ nav {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
+    list-style: none;
 }
 
 #logo {
@@ -28,6 +29,93 @@ nav {
 
 #contratacion {
     background-color: #f3f4e5;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+s {
+    border: 10px;
+}
+
+#catalogos {
+    background-color: #f3f4e5;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+#title {
+    background-color: #a1c1be;
+    color: #ffffff;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    padding: 5px;
+}
+
+table {
+    background-color: #f3f4e5;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+
+}
+
+#ndp {
+    background-color: #59554e;
+    color: #ffffff;
+}
+
+#agregar {
+    background-color: #59554e;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    color: #ffffff;
+}
+
+#agregar:hover {
+    background-color: #59554e;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+#detalle {
+    box-shadow: rgba(31, 216, 226, 0.603) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    color: #000000;
+}
+
+#detalle:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(95, 95, 95, 0.22) 0px 15px 12px;
+}
+
+#editar {
+    box-shadow: rgba(31, 216, 226, 0.603) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    color: #000000;
+}
+
+#editar:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(95, 95, 95, 0.22) 0px 15px 12px;
+}
+
+#borrar {
+    box-shadow: rgba(30, 68, 240, 0.603) 0px 30px 60px -12px inset, rgba(133, 141, 253, 0.3) 0px 18px 36px -18px inset;
+    color: #000000;
+}
+
+#borrar:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(95, 95, 95, 0.22) 0px 15px 12px;
+}
+
+#formulario {
+    width: 95%;
+    text-align: justify;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    border-bottom:40px ;
+}
+
+#fuente {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
@@ -68,4 +156,3 @@ nav {
     box-shadow: inset 6px 6px 20px -1px #f3f4e5,
         inset -6px -6px 20px -1px #e2e3d9;
 }
-
