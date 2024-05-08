@@ -7,6 +7,111 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+###Idiomas
+
+
+
+@app.route('/idioma')
+def idioma():
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('select idIdioma, descripcion from idioma order by idIdioma')
+    datos = cursor.fetchall()
+    return render_template("idioma.html", comentarios = datos)
+
+@app.route('/idioma_agregar')
+def idioma_agregar():
+    return render_template("idioma_agr.html")
+
+
+@app.route('/idioma_fagrega', methods=['POST'])
+def idioma_fagrega():
+    if request.method == 'POST':
+        desc = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute('insert into idioma (descripcion) values (%s)',(desc))
+        conn.commit()
+    return redirect(url_for('idioma'))
+
+@app.route('/idioma_editar/<string:id>')
+def idioma_editar(id):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('select idIdioma, descripcion from idioma where idIdioma = %s', (id))
+    dato  = cursor.fetchall()
+    return render_template("idioma_edi.html", comentar=dato[0])
+
+@app.route('/idioma_fedita/<string:id>',methods=['POST'])
+def idioma_fedita(id):
+    if request.method == 'POST':
+        desc=request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute('update idioma set descripcion=%s where idIdioma=%s', (desc,id))
+        conn.commit()
+    return redirect(url_for('idioma'))
+
+@app.route('/idioma_borrar/<string:id>')
+def idioma_borrar(id):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('delete from idioma where idIdioma = {0}'.format(id))
+    conn.commit()
+    return redirect(url_for('idioma'))
+
+###habilidades
+
+@app.route('/habilidad')
+def habilidad():
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('select idHabilidad, descripcion from habilidad order by idHabilidad')
+    datos = cursor.fetchall()
+    return render_template("habilidad.html", comentarios = datos)
+
+@app.route('/habilidad_agregar')
+def habilidad_agregar():
+    return render_template("habilidad_agr.html")
+
+
+@app.route('/habilidad_fagrega', methods=['POST'])
+def habilidad_fagrega():
+    if request.method == 'POST':
+        desc = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute('insert into habilidad (descripcion) values (%s)',(desc))
+        conn.commit()
+    return redirect(url_for('habilidad'))
+
+@app.route('/habilidad_editar/<string:id>')
+def habilidad_editar(id):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('select idHabilidad, descripcion from habilidad where idHabilidad = %s', (id))
+    dato  = cursor.fetchall()
+    return render_template("habilidad_edi.html", comentar=dato[0])
+
+@app.route('/habilidad_fedita/<string:id>',methods=['POST'])
+def habilidad_fedita(id):
+    if request.method == 'POST':
+        desc=request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute('update habilidad set descripcion=%s where idHabilidad=%s', (desc,id))
+        conn.commit()
+    return redirect(url_for('habilidad'))
+
+@app.route('/habilidad_borrar/<string:id>')
+def habilidad_borrar(id):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute('delete from habilidad where idHabilidad = {0}'.format(id))
+    conn.commit()
+    return redirect(url_for('habilidad'))
+
+
 @app.route('/gradoAvance')
 def gradoAvance():
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
