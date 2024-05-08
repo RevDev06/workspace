@@ -9,7 +9,7 @@ def home():
 
 @app.route('/gradoAvance')
 def gradoAvance():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3' )
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idArea, descripcion from area order by idArea')
     datos = cursor.fetchall()
@@ -17,7 +17,7 @@ def gradoAvance():
 
 @app.route('/area')
 def area():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3' )
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idArea, descripcion from area order by idArea')
     datos = cursor.fetchall()
@@ -25,7 +25,7 @@ def area():
 
 @app.route('/area_editar/<string:id>')
 def area_editar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idArea, descripcion from area where idArea = %s', (id))
     dato  = cursor.fetchall()
@@ -35,7 +35,7 @@ def area_editar(id):
 def area_fedita(id):
     if request.method == 'POST':
         desc=request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
         cursor = conn.cursor()
         cursor.execute('update area set descripcion=%s where idArea=%s', (desc,id))
         conn.commit()
@@ -43,7 +43,7 @@ def area_fedita(id):
 
 @app.route('/area_borrar/<string:id>')
 def area_borrar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute('delete from area where idArea = {0}'.format(id))
     conn.commit()
@@ -57,7 +57,7 @@ def area_agregar():
 def area_fagrega():
     if request.method == 'POST':
         desc = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3' )
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
         cursor = conn.cursor()
         cursor.execute('insert into area (descripcion) values (%s)',(desc))
         conn.commit()
@@ -67,7 +67,7 @@ def area_fagrega():
 
 @app.route('/puesto')
 def puesto():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3' )
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('select idPuesto, nomPuesto from puesto order by idPuesto')
@@ -79,7 +79,7 @@ def puesto():
 
 @app.route('/puesto_fdetalle/<string:idP>', methods=['GET'])
 def puesto_fdetalle(idP):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('select idPuesto, nomPuesto from puesto order by idPuesto')
@@ -117,7 +117,7 @@ def puesto_fdetalle(idP):
 
 @app.route('/puesto_borrar/<string:idP>')
 def puesto_borrar(idP):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute('delete from puesto where idPuesto = %s',(idP))
     conn.commit()
@@ -130,7 +130,7 @@ def puesto_borrar(idP):
 
 @app.route('/puesto_agrOp2')
 def puesto_agrOp2():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idArea, descripcion from area ')
     datos1 = cursor.fetchall()
@@ -203,7 +203,7 @@ def puesto_fagrega():
         conT = request.form['condicionesTrabajo']
 
 
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute(
     'insert into puesto (codPuesto,idArea,nomPuesto,puestoJefeSup,jornada,remunMensual,prestaciones,descripcionGeneral,'
@@ -246,7 +246,7 @@ def puesto_fagrega():
 
 @app.route('/puesto_editar/<string:idP>')
 def puesto_editar(idP):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('select idPuesto,codPuesto,idArea,nomPuesto,puestoJefeSup,jornada,remunMensual,prestaciones,descripcionGeneral,'
@@ -331,7 +331,7 @@ def puesto_fedita(idP):
         resp = request.form['responsabilidades']
         conT = request.form['condicionesTrabajo']
 
-    conn = pymysql.connect(host='localhost', user='root', passwd='', db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('update puesto set codPuesto = %s, idArea = %s, nomPuesto = %s, puestoJefeSup = %s, jornada = %s, '
@@ -369,6 +369,56 @@ def puesto_fedita(idP):
             cursor.execute('insert into puesto_has_habilidad(idPuesto,idHabilidad) values (%s,%s)', (idP, i))
             conn.commit()
     return redirect(url_for('puesto'))
+
+
+
+@app.route('/carrera')
+def carrera():
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idCarrera, descripcion FROM carrera ORDER BY idCarrera")
+    dato = cursor.fetchall()
+    return render_template("carrera.html", datos = dato)
+
+@app.route('/carre_agregar')
+def agreCarre():
+    return render_template("carre_agre.html")
+
+@app.route("/agregarCarre", methods=['POST'])
+def agregarCarrera():
+    if request.method == 'POST':
+        descrip = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO carrera (descripcion) VALUES (%s)", (descrip))
+        conn.commit()
+    return redirect(url_for('carrera'))
+
+@app.route("/carre_editar/<string:idd>")
+def editarcarre(idd):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idCarrera, descripcion FROM carrera WHERE idCarrera=%s", (idd))
+    dato = conn.fetchall()
+    return render_template("editarCarre.html", dato = dato[0])
+
+@app.route("/updateCarre/<string:idd>", methods=['POST'])
+def updateCarre(idd):
+    if request.method == 'POST':
+        descrip = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute("UPDATE carrera SET descripcion = %s WHERE idCarrera = %s", (descrip, idd))
+        conn.commit()
+    return redirect(url_for('carrera'))
+
+@app.route("/carre_borrar/<string:idd>")
+def borrarCarre(idd):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM carrera WHERE idCarrera = %s", (idd))
+    conn.commit()
+    return redirect(url_for('carrera'))
 
 
 
