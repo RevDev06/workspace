@@ -399,7 +399,7 @@ def editarcarre(idd):
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idCarrera, descripcion FROM carrera WHERE idCarrera=%s", (idd))
-    dato = conn.fetchall()
+    dato = cursor.fetchall()
     return render_template("editarCarre.html", dato = dato[0])
 
 @app.route("/updateCarre/<string:idd>", methods=['POST'])
