@@ -10,7 +10,6 @@ def home():
 ###Idiomas
 
 
-
 @app.route('/idioma')
 def idioma():
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
