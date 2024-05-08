@@ -463,6 +463,104 @@ def borrarCarre(idd):
 
 
 
+@app.route("/escolaridad")
+def escolaridad():
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idEscolaridad, descripcion FROM escolaridad ORDER BY idEscolaridad")
+    datos = cursor.fetchall()
+    return render_template("escolaridad.html", datos = datos)
+
+@app.route("/esco_agregar")
+def agreEsco():
+    return render_template("esco_agre.html")
+
+@app.route("/agregarEsco", methods=['POST'])
+def agregarEscolaridad():
+    if request.method == 'POST':
+        descrip = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO escolaridad (descripcion) VALUES (%s)", (descrip))
+        conn.commit()
+    return redirect(url_for("escolaridad"))
+
+@app.route("/esco_editar/<string:idd>")
+def editarEsco(idd):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idEscolaridad, descripcion FROM escolaridad WHERE idEscolaridad = %s", (idd))
+    dato = cursor.fetchall()
+    return render_template("editarEsco.html", dato = dato[0])
+
+@app.route("/updateEsco/<string:idd>", methods=['POST'])
+def updateEsco(idd):
+    if request.method == 'POST':
+        descrip = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute("UPDATE escolaridad SET descripcion = %s WHERE idEscolaridad = %s", (descrip, idd))
+        conn.commit()
+    return redirect(url_for('escolaridad'))
+
+@app.route("/esco_borrar/<string:idd>")
+def borrarEsco(idd):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM escolaridad WHERE idEscolaridad = %s", (idd))
+    conn.commit()
+    return redirect(url_for("escolaridad"))
+
+
+@app.route("/edocivil")
+def edocivil():
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idEstadoCivil, descripcion FROM estado_civil ORDER BY idEstadoCivil")
+    datos = cursor.fetchall()
+    return render_template("edoCivil.html", datos = datos)
+
+@app.route("/edociv_agregar")
+def agreEdoCiv():
+    return render_template("edociv_agre.html")
+
+@app.route("/agregarEdociv", methods=['POST'])
+def agregarEdoCiv():
+    if request.method == 'POST':
+        descrip = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO estado_civil (descripcion) VALUES (%s)", (descrip))
+        conn.commit()
+    return redirect(url_for("edocivil"))
+
+@app.route("/edoc_editar/<string:idd>")
+def editarEdociv(idd):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idEstadoCivil, descripcion FROM estado_civil WHERE idEstadoCivil = %s", (idd))
+    dato = cursor.fetchall()
+    return render_template("editarEdociv.html", dato = dato[0])
+
+@app.route("/updateEdociv/<string:idd>", methods=['POST'])
+def updateEdociv(idd):
+    if request.method == 'POST':
+        descrip = request.form['descripcion']
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute("UPDATE estado_civil SET descripcion = %s WHERE idEstadoCivil = %s", (descrip, idd))
+        conn.commit()
+    return redirect(url_for("edocivil"))
+
+@app.route("/edoc_borrar/<string:idd>")
+def borrarEdociv(idd):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM estado_civil WHERE idEstadoCivil = %s", (idd))
+    conn.commit()
+    return redirect(url_for("edocivil"))
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
