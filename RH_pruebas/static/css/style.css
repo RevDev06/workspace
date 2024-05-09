@@ -2,53 +2,125 @@
 
 nav {
     width: 100%;
-    background-color: #a1c1be;
+    transition: all ease-in-out 0.7s;
+    background: #a1c1be;
+    border-bottom: 2.5px solid #59554e;
     color: #42393b;
+    padding: 10px 20px;
+    width: 100%;
+    height: 85px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    margin: 1;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
     list-style: none;
 }
 
+nav ul {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background: #242424;
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path .8s ease-out;
+    z-index: 50;
+}
+
+nav ul .opciones {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 80;
+}
+
+nav ul .opciones li {
+    width: 180px;
+    margin: 20px 0;
+}
+
+nav ul .opciones li a {
+    color: #e5d8bf;
+    padding: 10px 30px;
+    border-bottom: 2px solid transparent;
+    transition: all ease-in .8s;
+}
+
+nav ul .opciones li a:hover {
+    border-bottom: 2px solid #c75a1c;
+    color: #f1f1f1;
+}
+
+@media screen and (min-width: 768px) {
+    nav ul {
+        position: initial;
+        clip-path: none;
+    }
+
+    nav ul .opciones {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    nav ul .opciones li {
+        margin: 0 10px;
+        width: auto;
+    }
+
+    nav ul .opciones li a {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#fuente {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
 #logo {
-    margin: 20px;
-    text-align: left;
+    margin: 10px;
+    text-align: center;
     font-family: "Poppins", sans-serif;
     font-weight: 730;
     font-style: normal;
-    font-size: 30px;
+    font-size: 40px;
     color: #e2e3d9;
 }
 
-#ini {
-    color: #42393b;
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-}
-
-#contratacion {
+#desplegable {
     background-color: #f3f4e5;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
+    margin: 10px;
 }
 
-s {
-    border: 10px;
-}
-
-#catalogos {
-    background-color: #f3f4e5;
+#barra {
+    background-color: #a1c1be;
+    color: #59554e;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
+    margin: 10px;
 }
+
 
 #title {
     background-color: #a1c1be;
     color: #ffffff;
-    border: none;
+    border-top: 10000px;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
@@ -60,7 +132,6 @@ table {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
-
 }
 
 #ndp {
@@ -112,14 +183,10 @@ table {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
-    border-bottom:40px ;
+    margin: 25px;
 }
 
-#fuente {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-}
+
 
 .area {
     font-family: "Poppins", sans-serif;

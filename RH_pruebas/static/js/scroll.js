@@ -15,7 +15,7 @@ window.addEventListener("scroll", function () {
         console.log(desplazamientoActual)
     } else {
 
-        $nav.style.top = "-80px";
+        $nav.style.top = "-100px";
         console.log('Ubicacion Principal')
         console.log(ubicacionPrincipal)
         console.log('desplazamiento')
