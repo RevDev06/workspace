@@ -103,15 +103,28 @@ nav ul .opciones li a:hover {
     font-weight: 200;
     font-style: normal;
     margin: 10px;
+    width: auto;
 }
 
 #barra {
+    background-color: #e2e3d9;
+    color: #59554e;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    margin: 10px;
+    text-align: center;
+    border:1px solid #59554e;
+}
+
+#barra1 {
     background-color: #a1c1be;
     color: #59554e;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
     margin: 10px;
+    text-align: center;
 }
 
 
