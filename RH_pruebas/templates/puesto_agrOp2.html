@@ -157,31 +157,33 @@
          <input class="form-check-input" type="checkbox" value="" name="i1" id="i1" onChange="miFunc2()">
          <label class="form-check-label" for="i1">NO REQUERIDO</label>
       </div>
-      {% {% for idio in catIdioma
-      if (idio.0)>1: %}
+      {% for idio in catIdioma %}
+      {% if idio.0 > 1 %}
       <div class="form-check">
          <input class="form-check-input" type="checkbox" value="" name="i{{idio.0}}" id="i{{idio.0}}">
          <label class="form-check-label" for="i{{idio.0}}">
             {{idio.1}}
          </label>
       </div>
+      {% endif %}
       {% endfor %}
       <script>
          function miFunc2() {
-            {% for idio in catIdioma %}
             var isChecked = document.getElementById('i1').checked;
-            if ({{idio.0 }
-         }> 1 && isChecked ) {
-            document.getElementById('i{{idio.0}}').disabled = true;
-            document.getElementById('i{{idio.0}}').checked = false;
-         }
-             else
-         { document.getElementById('i{{idio.0}}').disabled = false; }
-
-         {% endfor %}
+            {% for idio in catIdioma %}
+            {% if idio.0 > 1 %}
+            if (isChecked) {
+                  document.getElementById('i{{idio.0}}').disabled = true;
+                  document.getElementById('i{{idio.0}}').checked = false;
+            } else {
+                  document.getElementById('i{{idio.0}}').disabled = false;
             }
+            {% endif %}
+            {% endfor %}
+         }
       </script>
    </div>
+
    <div class="col-6">
       <span>Habilidades:</span>
       <div class="form-check">
@@ -201,12 +203,11 @@
          function miFunc3() {
             {% for hab in catHabilidad %}
             var isChecked = document.getElementById('h1').checked;
-            if ({{hab.0 }
-         }> 1 && isChecked ) {
+            if ({{hab.0 }}> 1 && isChecked ) {
             document.getElementById('h{{hab.0}}').disabled = true;
             document.getElementById('h{{hab.0}}').checked = false;
          }
-             else
+            else
          { document.getElementById('h{{hab.0}}').disabled = false; }
 
          {% endfor %}
