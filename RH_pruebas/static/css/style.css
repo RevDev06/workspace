@@ -29,8 +29,6 @@ nav ul {
     left: 0;
     background: #242424;
     width: 100%;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: clip-path .8s ease-out;
     z-index: 50;
 }
 
