@@ -2,18 +2,18 @@
 {% block content %}
 <link rel="stylesheet" href="/static/css/style.css">
 <style>
-      body{
+      body {
             background-color: #f3f4e5;
       }
 </style>
-<h3>
+<h3 id="fuente">
       <CENTER> <b> Agregar idioma</b> </CENTER>
 
 </h3>
 <br>
 <br>
 <br>
-<form class="area" action="/idioma_fagrega" method="post">
+<form id="formulario" action="/idioma_fagrega" method="post">
       <div class="container">
             <div class="form-row">
                   <div class="col-xs-12 ">
@@ -23,7 +23,7 @@
                         </div>
                   </div>
             </div>
+            <button type="submit" class="btn btn-primary ms-5" id="enviar">Enviar</button>
       </div>
-      <button type="submit" class="btn btn-primary ms-5" id="enviar">Enviar</button>
 </form>
 {% endblock %}

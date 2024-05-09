@@ -1,20 +1,25 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<style>
+        body {
+                background-color: #f3f4e5;
+        }
+</style>
+<form id="formulario" action="/updateEsco/{{dato[0]}}" method="post">
+        <div class="container">
+                <div class="form-row">
+                        <div class="col-xs-12 ">
+                                <div class="mb-3">
+                                        <label for="descripcion" class="form-label">Escolaridad</label>
+                                        <input type="text" class="form-control" name="descripcion" id="descripcion"
+                                                placeholder="area" value="{{dato[1]}}">
+                                </div>
 
-<form action="/updateEsco/{{dato[0]}}" method="post">
-    <div class="container">
-            <div class="form-row">
-                <div class="col-xs-12 ">
-                <div class="mb-3">
-                        <label for="descripcion" class="form-label">Escolaridad</label>
-                        <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="area" value="{{dato[1]}}">
+                        </div>
                 </div>
-
-                </div>
-            </div>
-    </div>
-            <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="submit" class="btn btn-primary" id="enviar">Actualizar</button>
+        </div>
 </form>
 
 {% endblock %}

@@ -1,39 +1,45 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <table width="100%" border="1" cellpadding="0" bordercolor="#000000">
-    <tbody>
+<table width="100%" cellpadding="0">
+  <tbody>
     <tr>
-    <td color="FFFFFF" bgcolor="#465F5A" valign="top">
-    <right><h3><a href="/idioma_agregar">Agregar idioma</a></h3></right>
-    <center><h3>Idioma</h3></center>
-    <table width="100%" border="1" cellpadding="0" bordercolor="#000000">
-    <thead>
-      <tr>
-        <td color="white" bgcolor="blue">Descripcion</td>
-        <td color="white" bgcolor="black"></td>
-        <td color="white" bgcolor="black"></td>
-      </tr>
-    </thead>
-    <tbody>
-    {% for i in comentarios %}
-        <tr>
-        <td width="80%">
-           {{i.1}}
-        </td>
+      <tdvalign="top">
+        <div id="title">
+          <right>
+            <h3><a href="/idioma_agregar">Agregar idioma</a></h3>
+          </right>
+          <center>
+            <h3>Idioma</h3>
+          </center>
+        </div>
+        <table width="100%" cellpadding="0">
+          <thead>
+            <tr>
+              <td><b>Descripcion</b></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in comentarios %}
+            <tr>
+              <td width="80%">
+                {{i.1}}
+              </td>
 
-        <td bgcolor="#2B2D83" width="8%">
-        <center><a href="/idioma_editar/{{i.0}}" style="">Editar</a></center>
+              <td width="8%">
+                <center><a href="/idioma_editar/{{i.0}}" class="btn" id="editar">Editar</a></center>
+              </td>
+              <td width="8%">
+                <center><a href="/idioma_borrar/{{i.0}}" class="btn" id="borrar">Borrar</a></center>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
         </td>
-        <td bgcolor="#3C3EC5" width="8%">
-        <center><a href="/idioma_borrar/{{i.0}}" style="">Borrar</a></center>
-        </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-    </table>
-    </td>
     </tr>
-    </tbody>
-    </table>
+  </tbody>
+</table>
 {% endblock %}
