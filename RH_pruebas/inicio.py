@@ -665,6 +665,16 @@ def borrarEdociv(idd):
     return redirect(url_for("edocivil"))
 
 
+@app.route("/candidatos")
+def candidatos():
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idCandidato, nombre, CURP FROM candidato ORDER BY idCandidato")
+    datos = cursor.fetchall()
+    return render_template("candidatos.html", datos = datos)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

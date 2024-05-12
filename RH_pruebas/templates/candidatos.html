@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<table width="100%" cellpadding="0" ¿>
+  <tbody>
+    <tr>
+      <td valign="top">
+        <div id="title">
+          <right>
+            <h3><a href="/cand_agregar"  class="btn" id="enviar">Agregar Candidato</a></h3>
+          </right>
+          <center>
+            <h3>CANDIDATOS REGISTRADOS</h3>
+          </center>
+        </div>
+        <table width="100%" cellpadding="0">
+          <thead>
+            <tr>
+              <td><b>Nombre</b></td>
+              <td><b>CURP</b></td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in datos %}
+            <tr>
+              <td width="40%">
+                {{i.1}}
+              </td>
+              <td width="40%">
+                {{i.2}}
+              </td>
+              <td width="8%">
+                <center><a href="/cand_editar/{{i.0}}" class="btn" id="editar">Editar</a></center>
+              </td>
+              <td width="8%">
+                <center><a href="/cand_borrar/{{i.0}}" class="btn" id="borrar">Borrar</a></center>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
