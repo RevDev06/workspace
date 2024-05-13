@@ -673,6 +673,9 @@ def candidatos():
     datos = cursor.fetchall()
     return render_template("candidatos.html", datos = datos)
 
+@app.route("/cand_agregar")
+def cand_agregar():
+    return render_template("cand_agregar.html")
 
 
 
