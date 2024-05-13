@@ -529,3 +529,12 @@ CREATE TABLE IF NOT EXISTS `candidato_seleccionado` (
   `nombre` varchar(40) NOT NULL,
   PRIMARY KEY (`idCandidato`)
 )
+
+
+DELIMITER //
+CREATE FUNCTION domicilio(nombre VARCHAR(40), domCalle VARCHAR(40), domNumExtInt VARCHAR(30), domColonia VARCHAR(40)) RETURNS VARCHAR(200)
+	BEGIN 
+    DECLARE domicilio VARCHAR(200);
+    
+    
+	END //

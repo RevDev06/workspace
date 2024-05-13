@@ -736,5 +736,10 @@ def seleccionarCandidato(idC, idV):
 
 
 
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+    #Boton en candidato seleccionado para generar el contrato
