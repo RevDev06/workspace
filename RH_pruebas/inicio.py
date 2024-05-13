@@ -694,6 +694,7 @@ def capturarCandidatos(idV):
 
     return render_template("capturarCand.html", dato = datos[0], catEdoCivil=datos2, catEscolaridad=datos3, catGradoAvance=datos4, catCarrera=datos5)
 
+
 @app.route("/seleccionCand/<string:idV>")
 def verCandidatosVacante(idV):
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
@@ -724,7 +725,7 @@ def borrarCand(idC, idV):
 
 @app.route("/seleccionarCandidato/<string:idC>/<string:idV>")
 def seleccionarCandidato(idC, idV):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idCandidato, idVacante, idRequisicion, idPuesto, CURP, RFC, nombre FROM candidato WHERE idCandidato=%s", (idC))
     datosCand = cursor.fetchall()

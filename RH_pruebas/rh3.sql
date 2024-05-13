@@ -107,20 +107,7 @@ INSERT INTO `candidato` (`idCandidato`, `idVacante`, `idRequisicion`, `idPuesto`
 -- --------------------------------------------------------
 
 
---
--- Estructura de tabla para la tabla `candidatoSeleccionado`
---
 
-CREATE TABLE IF NOT EXISTS `candidato_seleccionado` (
-  `idCandidato` int(11) NOT NULL,
-  `idVacante` int(11) NOT NULL,
-  `idRequisicion` int(11) NOT NULL,
-  `idPuesto` int(11) NOT NULL,
-  `CURP` varchar(30) NOT NULL,
-  `RFC` varchar(20) NOT NULL,
-  `nombre` varchar(40) NOT NULL,
-  PRIMARY KEY (`idCandidato`)
-)
 
 -- --------------------------------------------------------
 
@@ -527,3 +514,18 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Estructura de tabla para la tabla `candidatoSeleccionado`
+--
+
+CREATE TABLE IF NOT EXISTS `candidato_seleccionado` (
+  `idCandidato` int(11) NOT NULL,
+  `idVacante` int(11) NOT NULL,
+  `idRequisicion` int(11) NOT NULL,
+  `idPuesto` int(11) NOT NULL,
+  `CURP` varchar(30) NOT NULL,
+  `RFC` varchar(20) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  PRIMARY KEY (`idCandidato`)
+)
