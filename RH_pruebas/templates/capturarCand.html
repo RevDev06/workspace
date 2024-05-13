@@ -1,12 +1,13 @@
-
-
 {% extends "layout.html" %}
 {% block content %}
-
 <br>
 <form class="row g-3" id="formulario" action="/a" method="post">
-   <h3>
-     <b> Capturar Candidato Para </b> </CENTER>
+   <h3 id="title">
+      <center>
+         <br>
+         <b> Capturar Candidato Para </b>
+      </center>
+      <br>
    </h3>
    <div class="col-md-6">
       <label for="folio" class="form-label">Folio</label>
@@ -14,33 +15,35 @@
    </div>
    <div class="col-md-6">
       <label for="idVacante" class="form-label">Número de Vacante</label>
-      <input type="text" class="form-control" name="idVacante" id="idVacante" readonly  value="{{dato.1}}"></input>
+      <input type="text" class="form-control" name="idVacante" id="idVacante" readonly value="{{dato.1}}"></input>
 
    </div>
    <div class="col-md-12">
       <label for="nomPuesto" class="form-label">Nombre del Puesto</label>
-      <input type="text" class="form-control" name="nomPuesto" id="nomPuesto" readonly  value="{{dato.2}}"></input>
+      <input type="text" class="form-control" name="nomPuesto" id="nomPuesto" readonly value="{{dato.2}}"></input>
    </div>
-   <h3>
-    <br>
-    <b> Datos Requeridos </b> </CENTER>
-    <br> 
-    <br>
 
-  </h3>
+   <h3 id="title">
+      <center>
+         <br>
+         <b> Datos Requeridos </b>
+      </CENTER>
+      <br>
+      </center>
+   </h3>
 
-  <div class="col-md-6">
-   <label for="crup" class="form-label">CURP</label>
-   <input type="text" class="form-control" name="curp" id="curp" ></input>
+   <div class="col-md-6">
+      <label for="crup" class="form-label">CURP</label>
+      <input type="text" class="form-control" name="curp" id="curp"></input>
    </div>
    <div class="col-md-6">
       <label for="rfc" class="form-label">RFC</label>
-      <input type="text" class="form-control" name="rfc" id="rfc" ></input>
+      <input type="text" class="form-control" name="rfc" id="rfc"></input>
    </div>
 
    <div class="col-md-12">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" name="nombre" id="nombre" ></input>
+      <input type="text" class="form-control" name="nombre" id="nombre"></input>
    </div>
 
 
@@ -144,7 +147,7 @@
 
 
    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn btn-primary" id="enviar">Enviar</button>
 
    </div>
 </form>

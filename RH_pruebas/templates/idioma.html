@@ -7,16 +7,16 @@
       <tdvalign="top">
         <div id="title">
           <right>
-            <h3><a href="/idioma_agregar"  class="btn" id="enviar">Agregar idioma</a></h3>
+            <h3><a href="/idioma_agregar" class="btn" id="enviar">Agregar idioma</a></h3>
           </right>
           <center>
             <h3>Idioma</h3>
           </center>
         </div>
         <table width="100%" cellpadding="0">
-          <thead>
+          <thead id="ndp">
             <tr>
-              <td><b>Descripcion</b></td>
+              <td id="fuente"><b>Descripcion</b></td>
               <td></td>
               <td></td>
             </tr>
@@ -24,7 +24,7 @@
           <tbody>
             {% for i in comentarios %}
             <tr>
-              <td width="80%">
+              <td width="80%" >
                 {{i.1}}
               </td>
 
