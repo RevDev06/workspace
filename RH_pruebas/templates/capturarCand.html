@@ -1,9 +1,151 @@
+
+
 {% extends "layout.html" %}
-
 {% block content %}
+<h3>
+  <b> Capturar Candidato Para </b> </CENTER>
+</h3>
 
-<center><h3>Capturar candidato</h3></center>
+<br>
+<form class="row g-3" action="/puesto_fagrega2" method="post">
+   <div class="col-md-6">
+      <label for="folio" class="form-label">Folio</label>
+      <input type="text" class="form-control" name="folio" id="folio" readonly value="{{dato.0}}"> </input>
+   </div>
+   <div class="col-md-6">
+      <label for="idVacante" class="form-label">Número de Vacante</label>
+      <input type="text" class="form-control" name="idVacante" id="idVacante" readonly  value="{{dato.1}}"></input>
 
-{{dato}}
+   </div>
+   <div class="col-md-12">
+      <label for="nomPuesto" class="form-label">Nombre del Puesto</label>
+      <input type="text" class="form-control" name="nomPuesto" id="nomPuesto" readonly  value="{{dato.2}}"></input>
+   </div>
+   <h3>
+    <br>
+    <b> Datos Requeridos </b> </CENTER>
+    <br> 
+    <br>
 
+  </h3>
+
+  <div class="col-md-6">
+   <label for="crup" class="form-label">CURP</label>
+   <input type="text" class="form-control" name="curp" id="curp" ></input>
+   </div>
+   <div class="col-md-6">
+      <label for="rfc" class="form-label">RFC</label>
+      <input type="text" class="form-control" name="rfc" id="rfc" ></input>
+   </div>
+
+   <div class="col-md-12">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" id="nombre" ></input>
+   </div>
+
+
+   <label for="Domicilio" class="form-label">Domicilio:</label>
+
+
+   <div class="col-md-4">
+      <label for="Calle" class="form-label">Calle</label>
+      <input type="text" class="form-control" name="Calle" id="Calle"></input>
+   </div>
+   <div class="col-md-4">
+      <label for="numExtInt" class="form-label">Num Ext/Int</label>
+      <input type="text" class="form-control" name="numExtInt" id="numExtInt"></input>
+   </div>
+   <div class="col-md-4">
+      <label for="domColonia" class="form-label">Fraccionamiento/Colonia</label>
+      <input type="text" class="form-control" name="domColonia" id="domColonia"></input>
+   </div>
+   <div class="col-md-4">
+      <label for="tel1" class="form-label">Telefono 1</label>
+      <input type="text" class="form-control" name="tel1" id="tel1"></input>
+   </div>
+   <div class="col-md-4">
+      <label for="tel2" class="form-label">Telefono 2</label>
+      <input type="text" class="form-control" name="tel2" id="tel2"></input>
+   </div>
+   <div class="col-md-4">
+      <label for="correo" class="form-label">Correo</label>
+      <input type="text" class="form-control" name="correo" id="correo"></input>
+   </div>
+   <div class="col-md-4">
+      <label for="edad" class="form-label">Edad</label>
+      <input type="text" class="form-control" name="Edad" id="Edad"></input>
+   </div>
+   <div class="col-md-4">
+      <label for="sexo" class="form-label">Sexo</label>
+      <select name="sexo" id="sexo" class="form-select">
+         <option selected="true" disabled="disabled">Elige...</option>
+         <option value="Indistinto">Indistinto</option>
+         <option value="Hombre">Hombre</option>
+         <option value="Mujer">Mujer</option>
+      </select>
+   </div>
+   <div class="col-md-4">
+      <label for="idEstadoCivil" class="form-label">Estado Civil</label>
+      <select name="idEstadoCivil" id="idEstadoCivil" class="form-select">
+         <option selected="true" disabled="disabled">Elige...</option>
+         {%for i in catEdoCivil%}
+         <option value="{{i.0}}">{{i.1}}</option>
+         {% endfor %}
+      </select>
+
+   </div>
+   <div class="col-md-4">
+      <label for="idEscolaridad" class="form-label">Escolaridad</label>
+      <select name="idEscolaridad" id="idEscolaridad" class="form-select" onChange="miFunc1()">
+         <option selected="true" disabled="disabled">Elige...</option>
+         {%
+         for i in catEscolaridad
+         %}
+         <option value="{{i.0}}">{{i.1}}</option>
+         {% endfor %}
+      </select>
+      <script>
+         function miFunc1() {
+            var esco = document.getElementById('idEscolaridad').value;
+            if (esco == 1) {
+               document.getElementById('idGradoAvance').disabled = true;
+               document.getElementById('idCarrera').disabled = true;
+            }
+            else {
+               document.getElementById('idGradoAvance').disabled = false;
+               document.getElementById('idCarrera').disabled = false;
+            }
+         }
+      </script>
+   </div>
+   <div class="col-md-4">
+      <label for="idGradoAvance" class="form-label">Grado Avance</label>
+      <select name="idGradoAvance" id="idGradoAvance" class="form-select">
+         <option selected="true" disabled="disabled">Elige...</option>
+         {%
+         for i in catGradoAvance
+         %}
+         <option value="{{i.0}}">{{i.1}}</option>
+         {% endfor %}
+      </select>
+   </div>
+   <div class="col-md-4">
+      <label for="idCarrera" class="form-label">Carrera / Especialidad</label>
+      <select name="idCarrera" id="idCarrera" class="form-select">
+         <option selected="true" disabled="disabled">Elige...</option>
+         {%
+         for i in catCarrera
+         %}
+         <option value="{{i.0}}">{{i.1}}</option>
+         {% endfor %}
+      </select>
+
+   </div>
+
+
+   <div class="col-12">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+
+   </div>
+</form>
 {% endblock %}
