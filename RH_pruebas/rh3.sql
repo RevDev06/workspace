@@ -111,7 +111,7 @@ INSERT INTO `candidato` (`idCandidato`, `idVacante`, `idRequisicion`, `idPuesto`
 -- Estructura de tabla para la tabla `candidatoSeleccionado`
 --
 
-CREATE TABLE IF NOT EXISTS `candidatoSeleccionado` (
+CREATE TABLE IF NOT EXISTS `candidato_seleccionado` (
   `idCandidato` int(11) NOT NULL,
   `idVacante` int(11) NOT NULL,
   `idRequisicion` int(11) NOT NULL,

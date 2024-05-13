@@ -689,7 +689,7 @@ def verCandidatosVacante(idV):
     nomPuestoVacante = cursor.fetchall()
     cursor.execute("SELECT a.idCandidato, a.idVacante, a.idRequisicion, a.nombre, a.CURP FROM candidato a, vacante b WHERE a.idVacante=%s AND a.idVacante=b.idVacante", (idV))
     datos = cursor.fetchall()
-    return render_template("candVacan.html", datos = datos, nomPuesto = nomPuestoVacante[0][0])
+    return render_template("candVacan.html", datos = datos, nomPuesto = nomPuestoVacante[0][0], idV = idV)
 
 @app.route("/candSelec/<string:idV>")
 def showSelectedCand(idV):
@@ -697,17 +697,28 @@ def showSelectedCand(idV):
     cursor = conn.cursor() 
     cursor.execute("SELECT b.nomPuesto FROM puesto b, vacante a WHERE a.idVacante=%s AND a.idPuesto=b.idPuesto", (idV))
     nomPuestoVacante = cursor.fetchall()
-    cursor.execute("SELECT idCandidato, nombre, CURP FROM candidatoSeleccionado WHERE idVacante=%s", (idV))
+    cursor.execute("SELECT idCandidato, nombre, CURP FROM candidato_seleccionado WHERE idVacante=%s", (idV))
     datos = cursor.fetchall()
     return render_template("candSelecc.html", datos = datos, nomPuesto = nomPuestoVacante[0][0])
 
-@app.route("/borrarCand/<string:idC>")
-def borrarCand(idC):
+@app.route("/borrarCand/<string:idC>/<string:idV>")
+def borrarCand(idC, idV):
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
     cursor = conn.cursor() 
     cursor.execute("DELETE FROM candidato WHERE idCandidato=%s", (idC))
     conn.commit()
-    return redirect(url_for(""))
+    return redirect(url_for("verCandidatosVacante", idV = idV))
+
+@app.route("/seleccionarCandidato/<string:idC>/<string:idV>")
+def seleccionarCandidato(idC, idV):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT idCandidato, idVacante, idRequisicion, idPuesto, CURP, RFC, nombre FROM candidato WHERE idCandidato=%s", (idC))
+    datosCand = cursor.fetchall()
+    
+    cursor.execute("INSERT INTO candidato_seleccionado (idCandidato, idVacante, idRequisicion, idPuesto, CURP, RFC, nombre) VALUES (%s, %s, %s, %s, %s, %s, %s)", (datosCand[0][0], datosCand[0][1], datosCand[0][2], datosCand[0][3], datosCand[0][4], datosCand[0][5], datosCand[0][6]))
+    conn.commit()
+    return redirect(url_for("verCandidatosVacante", idV = idV))
 
 
 
