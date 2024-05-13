@@ -106,6 +106,24 @@ INSERT INTO `candidato` (`idCandidato`, `idVacante`, `idRequisicion`, `idPuesto`
 
 -- --------------------------------------------------------
 
+
+--
+-- Estructura de tabla para la tabla `candidatoSeleccionado`
+--
+
+CREATE TABLE IF NOT EXISTS `candidatoSeleccionado` (
+  `idCandidato` int(11) NOT NULL,
+  `idVacante` int(11) NOT NULL,
+  `idRequisicion` int(11) NOT NULL,
+  `idPuesto` int(11) NOT NULL,
+  `CURP` varchar(30) NOT NULL,
+  `RFC` varchar(20) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  PRIMARY KEY (`idCandidato`)
+)
+
+-- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `carrera`
 --
