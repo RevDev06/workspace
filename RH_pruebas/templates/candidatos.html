@@ -1,51 +1,54 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<table width="100%" cellpadding="0" ¿>
-  <tbody>
-    <tr>
-      <td valign="top">
-        <div id="title">
-          <center>
-            <h3>VACANTES DISPONIBLES</h3>
-          </center>
-        </div>
-        <table width="100%" cellpadding="0">
-          <thead>
-            <tr>
-              <td><b>Folio Requisición</b></td>
-              <td><b>ID de la Vacante</b></td>
-              <td><b>Nombre del Puesto</b></td>
-            </tr>
-          </thead>
-          <tbody>
-            {% for i in datos %}
-            <tr>
-              <td width="20%">
-                {{i.0}}
-              </td>
-              <td width="20%">
-                {{i.1}}
-              </td>
-              <td width="30%">
-                {{i.2}}
-              </td>
-              <td width="10%">
-                <center><a href="/capturarCand/{{i.1}}" class="btn" id="capturar">Capturar candidato</a></center>
-              </td>
-              <td width="10%">
-                <center><a href="/seleccionCand/{{i.1}}" class="btn" id="seleccion">Selección</a></center>
-              </td>
-              <td width="10%">
-                <center><a href="/candSelec/{{i.1}}" class="btn" id="candSelec">Candidatos seleccionado</a></center>
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+  <table width="100%" cellpadding="0">
+    <tbody>
+      <tr>
+        <td valign="top">
+          <div id="title">
+            <center>
+              <h3>VACANTES DISPONIBLES</h3>
+            </center>
+          </div>
+          <table width="100%" cellpadding="0">
+            <thead id="ndp">
+              <tr>
+                <td><b>Folio Requisición</b></td>
+                <td><b>ID de la Vacante</b></td>
+                <td><b>Nombre del Puesto</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in datos %}
+              <tr>
+                <td width="20%">
+                  {{i.0}}
+                </td>
+                <td width="20%">
+                  {{i.1}}
+                </td>
+                <td width="30%">
+                  {{i.2}}
+                </td>
+                <td width="10%">
+                  <center><a href="/capturarCand/{{i.1}}" class="btn" id="editar">Capturar candidato</a></center>
+                </td>
+                <td width="10%">
+                  <center><a href="/seleccionCand/{{i.1}}" class="btn" id="editar">Selección</a></center>
+                </td>
+                <td width="10%">
+                  <center><a href="/candSelec/{{i.1}}" class="btn" id="editar">Candidatos seleccionado</a></center>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</center>
 {% endblock %}
