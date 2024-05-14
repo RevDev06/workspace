@@ -9,17 +9,10 @@ window.addEventListener("scroll", function () {
     if (ubicacionPrincipal >= desplazamientoActual) {
 
         $nav.style.top = "0px";
-        console.log('Ubicacion Principal')
-        console.log(ubicacionPrincipal)
-        console.log('desplazamiento')
-        console.log(desplazamientoActual)
+
     } else {
 
         $nav.style.top = "-100px";
-        console.log('Ubicacion Principal')
-        console.log(ubicacionPrincipal)
-        console.log('desplazamiento')
-        console.log(desplazamientoActual)
     }
 
 
