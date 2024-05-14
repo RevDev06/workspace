@@ -81,7 +81,7 @@
    <div class="col-md-4">
       <label for="sexo" class="form-label">Sexo</label>
       <select name="sexo" id="sexo" class="form-select">
-         <option selected="true" disabled="disabled">Elige...</option>
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
          <option value="Indistinto">Indistinto</option>
          <option value="Hombre">Hombre</option>
          <option value="Mujer">Mujer</option>
@@ -90,7 +90,7 @@
    <div class="col-md-4">
       <label for="idEstadoCivil" class="form-label">Estado Civil</label>
       <select name="idEstadoCivil" id="idEstadoCivil" class="form-select">
-         <option selected="true" disabled="disabled">Elige...</option>
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
          {%for i in catEdoCivil%}
          <option value="{{i.0}}">{{i.1}}</option>
          {% endfor %}
@@ -100,7 +100,7 @@
    <div class="col-md-4">
       <label for="idEscolaridad" class="form-label">Escolaridad</label>
       <select name="idEscolaridad" id="idEscolaridad" class="form-select" onChange="miFunc1()">
-         <option selected="true" disabled="disabled">Elige...</option>
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
          {%
          for i in catEscolaridad
          %}
@@ -124,7 +124,7 @@
    <div class="col-md-4">
       <label for="idGradoAvance" class="form-label">Grado Avance</label>
       <select name="idGradoAvance" id="idGradoAvance" class="form-select">
-         <option selected="true" disabled="disabled">Elige...</option>
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
          {%
          for i in catGradoAvance
          %}
@@ -135,7 +135,7 @@
    <div class="col-md-4">
       <label for="idCarrera" class="form-label">Carrera / Especialidad</label>
       <select name="idCarrera" id="idCarrera" class="form-select">
-         <option selected="true" disabled="disabled">Elige...</option>
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
          {%
          for i in catCarrera
          %}
@@ -147,7 +147,7 @@
    <div class="col-md-4">
       <label for="entrevistaReq" class="form-label">Entrevista Requerida</label>
       <select name="entrevistaReq" id="entrevistaReq" class="form-select" onchange="mostrarPres('entrevistaReq', 'campoEntrevistaReq', 'campoEntrevistaRes')">
-        <option selected="true" disabled="disabled">Elige...</option>
+        <option selected="true" disabled="disabled" value="0">Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
@@ -170,7 +170,7 @@
     <div class="col-md-4">
       <label for="evalMedicaReq" class="form-label">Evaluacion Medica Requerida</label>
       <select name="evalMedicaReq" id="evalMedicaReq" class="form-select" onchange="mostrarPres('evalMedicaReq', 'campoEvalMedicaReq', 'campoEvalMedicaRes')">
-        <option selected="true" disabled="disabled">Elige...</option>
+        <option selected="true" disabled="disabled" value="0">Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
@@ -194,7 +194,7 @@
     <div class="col-md-4">
       <label for="evalPsicoloReq" class="form-label">Evaluacion Psicologica Requerida</label>
       <select name="evalPsicoloReq" id="evalPsicoloReq" class="form-select" onchange="mostrarPres('evalPsicoloReq', 'campoEvalPsicoloReq', 'campoEvalPsicoloRes')">
-        <option selected="true" disabled="disabled">Elige...</option>
+        <option selected="true" disabled="disabled" value="0">Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
@@ -218,7 +218,7 @@
     <div class="col-md-4">
       <label for="evalPsicomReq" class="form-label">Evaluacion Psicometrica Requerida</label>
       <select name="evalPsicomReq" id="evalPsicomReq" class="form-select" onchange="mostrarPres('evalPsicomReq', 'campoEvalPsicomReq', 'campoEvalPsicomRes')">
-        <option selected="true" disabled="disabled">Elige...</option>
+        <option selected="true" disabled="disabled" value="0">Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
@@ -243,7 +243,7 @@
     <div class="col-md-4">
       <label for="evalTecniReq" class="form-label">Evaluacion Tecnica Requerida</label>
       <select name="evalTecniReq" id="evalTecniReq" class="form-select" onchange="mostrarPres('evalTecniReq', 'campoEvalTecniReq', 'campoEvalTecniRes')">
-        <option selected="true" disabled="disabled">Elige...</option>
+        <option selected="true" disabled="disabled" value="0">Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
@@ -266,7 +266,7 @@
     <div class="col-md-4">
       <label for="evalConoReq" class="form-label">Evaluacion de Conocimientos Requerida</label>
       <select name="evalConoReq" id="evalConoReq" class="form-select" onchange="mostrarPres('evalConoReq', 'campoEvalConoReq', 'campoEvalConoRes')">
-        <option selected="true" disabled="disabled">Elige...</option>
+        <option selected="true" disabled="disabled" value="0">Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
@@ -290,7 +290,7 @@
     <div class="col-md-4">
       <label for="entrevistaFinReq" class="form-label">Entrevista Final Requerida</label>
       <select name="entrevistaFinReq" id="entrevistaFinReq" class="form-select" onchange="mostrarPres('entrevistaFinReq', 'campoEntrevistaFinReq', 'campoEntrevistaFinRes')">
-        <option selected="true" disabled="disabled">Elige...</option>
+        <option selected="true" disabled="disabled" value="0">Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
