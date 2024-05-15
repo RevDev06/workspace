@@ -1,14 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 <link rel="stylesheet" href="/static/css/style.css">
-<h3 id="fuente">
+<style>
+      body {
+            background-color: #f3f3e6de;
+      }
+</style>
+<h3 id="title">
       <CENTER> <b> Agregar Grado de Avance </b> </CENTER>
 
 </h3>
 <br>
 <br>
 <br>
-<form class="area" action="/grado_fagrega" method="post">
+<form id="formulario" action="/grado_fagrega" method="post">
       <div class="container">
             <div class="form-row">
                   <div class="col-xs-12 ">
@@ -17,8 +22,8 @@
                               <input type="text" class="form-control" name="descripcion" id="descripcion"></input>
                         </div>
                   </div>
+                  <button type="submit" class="btn" id="enviar">Enviar</button>
             </div>
-            <button type="submit" class="btn btn-primary ms-5" id="enviar">Enviar</button>
       </div>
 </form>
 {% endblock %}

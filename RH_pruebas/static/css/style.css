@@ -94,7 +94,7 @@ nav ul .opciones li a:hover {
     font-weight: 730;
     font-style: normal;
     font-size: 40px;
-    color: #e2e3d9;
+    color: #59554e;
 }
 
 #desplegable {
@@ -137,7 +137,7 @@ nav ul .opciones li a:hover {
     font-style: normal;
     text-decoration: none;
     text-decoration-style: none;
-    padding: 5px;
+    padding: 30px;
 }
 
 table {
@@ -154,7 +154,7 @@ table {
 
 #agregar {
     background-color: #59554e;
-    box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.384) 0px 18px 36px -18px inset;
     color: #ffffff;
 }
 
@@ -164,38 +164,49 @@ table {
 }
 
 #detalle {
-    box-shadow: rgba(31, 216, 226, 0.603) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: #c5dddd 0px 30px 60px -12px inset, #0c0c0c 0px 18px 36px -18px inset;
     color: #000000;
+    border: none;
 }
 
 #detalle:hover {
+    background-color: #a1c1be;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(95, 95, 95, 0.22) 0px 15px 12px;
 }
 
 #editar {
+
     box-shadow: rgba(223, 226, 209, 0.603) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.466) 0px 18px 36px -18px inset;
     color: #000000;
+    margin: 2px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
     border: none;
-    margin: 1.5px;
 }
 
 #editar:hover {
     border: none;
+    background-color: #f3f4e5;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(95, 95, 95, 0.22) 0px 15px 12px;
-    margin: 1.5px;
+    margin: 2px;
 }
 
 #borrar {
-    box-shadow: rgba(0, 0, 0, 0.466) 0px 18px 36px -18px inset, rgba(223, 226, 209, 0.603) 0px 30px 60px -12px inset;
+    box-shadow: rgba(223, 226, 209, 0.603) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.466) 0px 18px 36px -18px inset;
     color: #000000;
     border: none;
-    margin: 1.5px;
+    margin: 2px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
 
 #borrar:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(95, 95, 95, 0.22) 0px 15px 12px;
     border: none;
-    margin: 1.5px;
+    background-color: #f3f4e5;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(95, 95, 95, 0.22) 0px 15px 12px;
+    margin: 2px;
 }
 
 #formulario {
@@ -216,8 +227,8 @@ table {
 }
 
 #enviar {
-    background-color: #f3f4e5;
-    box-shadow: rgba(31, 31, 31, 0.25) 0px 30px 60px -12px inset, rgba(179, 179, 179, 0.3) 0px 18px 36px -18px inset;
+    background-color: #e2e3d9;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset, rgba(34, 34, 34, 0.3) 0px 18px 36px -18px inset;
     color: #59554e;
     border: none;
 }

@@ -1,13 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
+<style>
+   body {
+      background-color: #f3f3e6de;
+   }
+</style>
 <br>
 <form class="row g-3" id="formulario" action="/captCand" method="post">
    <h3 id="title">
       <center>
-         <br>
          <b> Capturar Candidato Para </b>
       </center>
-      <br>
    </h3>
    <div class="col-md-6">
       <label for="folio" class="form-label">Folio</label>
@@ -25,10 +28,7 @@
 
    <h3 id="title">
       <center>
-         <br>
          <b> Datos Requeridos </b>
-      </CENTER>
-      <br>
       </center>
    </h3>
 
@@ -80,278 +80,287 @@
    </div>
    <div class="col-md-4">
       <label for="sexo" class="form-label">Sexo</label>
-<<<<<<< HEAD
-      <select name="sexo" id="sexo" class="form-select catalogo">
+      <<<<<<< HEAD <select name="sexo" id="sexo" class="form-select catalogo">
          <option selected="true" disabled="disabled">Elige...</option>
-=======
-      <select name="sexo" id="sexo" class="form-select">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
->>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
-         <option value="Indistinto">Indistinto</option>
-         <option value="Hombre">Hombre</option>
-         <option value="Mujer">Mujer</option>
-      </select>
+         =======
+         <select name="sexo" id="sexo" class="form-select">
+            <option selected="true" disabled="disabled" value="0">Elige...</option>
+            >>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
+            <option value="Indistinto">Indistinto</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+         </select>
    </div>
    <div class="col-md-4">
       <label for="idEstadoCivil" class="form-label">Estado Civil</label>
-<<<<<<< HEAD
-      <select name="idEstadoCivil" id="idEstadoCivil" class="form-select catalogo">
+      <<<<<<< HEAD <select name="idEstadoCivil" id="idEstadoCivil" class="form-select catalogo">
          <option selected="true" disabled="disabled">Elige...</option>
-=======
-      <select name="idEstadoCivil" id="idEstadoCivil" class="form-select">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
->>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
-         {%for i in catEdoCivil%}
-         <option value="{{i.0}}">{{i.1}}</option>
-         {% endfor %}
-      </select>
+         =======
+         <select name="idEstadoCivil" id="idEstadoCivil" class="form-select">
+            <option selected="true" disabled="disabled" value="0">Elige...</option>
+            >>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
+            {%for i in catEdoCivil%}
+            <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+         </select>
 
    </div>
    <div class="col-md-4">
       <label for="idEscolaridad" class="form-label">Escolaridad</label>
-<<<<<<< HEAD
-      <select name="idEscolaridad" id="idEscolaridad" class="form-select catalogo" onChange="miFunc1()">
+      <<<<<<< HEAD <select name="idEscolaridad" id="idEscolaridad" class="form-select catalogo" onChange="miFunc1()">
          <option selected="true" disabled="disabled">Elige...</option>
-=======
-      <select name="idEscolaridad" id="idEscolaridad" class="form-select" onChange="miFunc1()">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
->>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
-         {%
-         for i in catEscolaridad
-         %}
-         <option value="{{i.0}}">{{i.1}}</option>
-         {% endfor %}
-      </select>
-      <script>
-         function miFunc1() {
-            var esco = document.getElementById('idEscolaridad').value;
-            if (esco == 1) {
-               document.getElementById('idGradoAvance').disabled = true;
-               document.getElementById('idCarrera').disabled = true;
-               document.getElementById('idGradoAvance').children[1].selected = true;
-               document.getElementById('idCarrera').children[1].selected = true;
+         =======
+         <select name="idEscolaridad" id="idEscolaridad" class="form-select" onChange="miFunc1()">
+            <option selected="true" disabled="disabled" value="0">Elige...</option>
+            >>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
+            {%
+            for i in catEscolaridad
+            %}
+            <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+         </select>
+         <script>
+            function miFunc1() {
+               var esco = document.getElementById('idEscolaridad').value;
+               if (esco == 1) {
+                  document.getElementById('idGradoAvance').disabled = true;
+                  document.getElementById('idCarrera').disabled = true;
+                  document.getElementById('idGradoAvance').children[1].selected = true;
+                  document.getElementById('idCarrera').children[1].selected = true;
+               }
+               else {
+                  document.getElementById('idGradoAvance').disabled = false;
+                  document.getElementById('idCarrera').disabled = false;
+               }
             }
-            else {
-               document.getElementById('idGradoAvance').disabled = false;
-               document.getElementById('idCarrera').disabled = false;
-            }
-         }
-      </script>
+         </script>
    </div>
    <div class="col-md-4">
       <label for="idGradoAvance" class="form-label">Grado Avance</label>
-<<<<<<< HEAD
-      <select name="idGradoAvance" id="idGradoAvance" class="form-select catalogo">
+      <<<<<<< HEAD <select name="idGradoAvance" id="idGradoAvance" class="form-select catalogo">
          <option selected="true" disabled="disabled">Elige...</option>
-=======
-      <select name="idGradoAvance" id="idGradoAvance" class="form-select">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
->>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
-         {%
-         for i in catGradoAvance
-         %}
-         <option value="{{i.0}}">{{i.1}}</option>
-         {% endfor %}
-      </select>
+         =======
+         <select name="idGradoAvance" id="idGradoAvance" class="form-select">
+            <option selected="true" disabled="disabled" value="0">Elige...</option>
+            >>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
+            {%
+            for i in catGradoAvance
+            %}
+            <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+         </select>
    </div>
    <div class="col-md-4">
       <label for="idCarrera" class="form-label">Carrera / Especialidad</label>
-<<<<<<< HEAD
-      <select name="idCarrera" id="idCarrera" class="form-select catalogo">
+      <<<<<<< HEAD <select name="idCarrera" id="idCarrera" class="form-select catalogo">
          <option selected="true" disabled="disabled">Elige...</option>
-=======
-      <select name="idCarrera" id="idCarrera" class="form-select">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
->>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
-         {%
-         for i in catCarrera
-         %}
-         <option value="{{i.0}}">{{i.1}}</option>
-         {% endfor %}
-      </select>
+         =======
+         <select name="idCarrera" id="idCarrera" class="form-select">
+            <option selected="true" disabled="disabled" value="0">Elige...</option>
+            >>>>>>> e8f97979149b407148c40a1ca4ed749dd82c4393
+            {%
+            for i in catCarrera
+            %}
+            <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+         </select>
 
    </div>
    <div class="col-md-4">
       <label for="entrevistaReq" class="form-label">Entrevista Requerida</label>
-      <select name="entrevistaReq" id="entrevistaReq" class="form-select" onchange="mostrarPres('entrevistaReq', 'campoEntrevistaReq', 'campoEntrevistaRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="entrevistaReq" id="entrevistaReq" class="form-select"
+         onchange="mostrarPres('entrevistaReq', 'campoEntrevistaReq', 'campoEntrevistaRes')">
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEntrevistaReq">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEntrevistaReq">
       <label for="entrevistaPres" class="form-label">Entrevista Presentada</label>
-      <select name="entrevistaPres" id="entrevistaPres" class="form-select" onchange="mostrarRes('entrevistaPres', 'campoEntrevistaRes')">
-        <option selected="true" value="0" disabled>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="entrevistaPres" id="entrevistaPres" class="form-select"
+         onchange="mostrarRes('entrevistaPres', 'campoEntrevistaRes')">
+         <option selected="true" value="0" disabled>Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEntrevistaRes">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEntrevistaRes">
       <label for="campoEntrevista" class="form-label">Resultado Entrevista</label>
       <input type="text" name="campoEntrevista" id="campoEntrevista" class="form-control" disabled>
-    </div>
-    
-    <div class="col-md-4">
+   </div>
+
+   <div class="col-md-4">
       <label for="evalMedicaReq" class="form-label">Evaluacion Medica Requerida</label>
-      <select name="evalMedicaReq" id="evalMedicaReq" class="form-select" onchange="mostrarPres('evalMedicaReq', 'campoEvalMedicaReq', 'campoEvalMedicaRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalMedicaReq" id="evalMedicaReq" class="form-select"
+         onchange="mostrarPres('evalMedicaReq', 'campoEvalMedicaReq', 'campoEvalMedicaRes')">
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalMedicaReq">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalMedicaReq">
       <label for="evalMedicaPres" class="form-label">Evaluacion Medica Presentada</label>
-      <select name="evalMedicaPres" id="evalMedicaPres" class="form-select" onchange="mostrarRes('evalMedicaPres', 'campoEvalMedicaRes')">
-        <option selected="true" value="0" disabled>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalMedicaPres" id="evalMedicaPres" class="form-select"
+         onchange="mostrarRes('evalMedicaPres', 'campoEvalMedicaRes')">
+         <option selected="true" value="0" disabled>Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalMedicaRes">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalMedicaRes">
       <label for="campoEvalMedica" class="form-label">Resultado Evaluacion Medica</label>
       <input type="text" name="campoEvalMedica" id="campoEvalMedica" class="form-control" disabled>
-    </div>
-    
+   </div>
 
-    <div class="col-md-4">
+
+   <div class="col-md-4">
       <label for="evalPsicoloReq" class="form-label">Evaluacion Psicologica Requerida</label>
-      <select name="evalPsicoloReq" id="evalPsicoloReq" class="form-select" onchange="mostrarPres('evalPsicoloReq', 'campoEvalPsicoloReq', 'campoEvalPsicoloRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalPsicoloReq" id="evalPsicoloReq" class="form-select"
+         onchange="mostrarPres('evalPsicoloReq', 'campoEvalPsicoloReq', 'campoEvalPsicoloRes')">
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalPsicoloReq">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalPsicoloReq">
       <label for="evalPsicoloPres" class="form-label">Evaluacion Psicologica Presentada</label>
-      <select name="evalPsicoloPres" id="evalPsicoloPres" class="form-select" onchange="mostrarRes('evalPsicoloPres', 'campoEvalPsicoloRes')">
-        <option selected="true" value="0" disabled>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalPsicoloPres" id="evalPsicoloPres" class="form-select"
+         onchange="mostrarRes('evalPsicoloPres', 'campoEvalPsicoloRes')">
+         <option selected="true" value="0" disabled>Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalPsicoloRes">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalPsicoloRes">
       <label for="campoEvalPsicolo" class="form-label">Resultado Evaluacion Psicologica</label>
       <input type="text" name="campoEvalPsicolo" id="campoEvalPsicolo" class="form-control" disabled>
-    </div>
-    
+   </div>
 
-    <div class="col-md-4">
+
+   <div class="col-md-4">
       <label for="evalPsicomReq" class="form-label">Evaluacion Psicometrica Requerida</label>
-      <select name="evalPsicomReq" id="evalPsicomReq" class="form-select" onchange="mostrarPres('evalPsicomReq', 'campoEvalPsicomReq', 'campoEvalPsicomRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalPsicomReq" id="evalPsicomReq" class="form-select"
+         onchange="mostrarPres('evalPsicomReq', 'campoEvalPsicomReq', 'campoEvalPsicomRes')">
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalPsicomReq">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalPsicomReq">
       <label for="evalPsicomPres" class="form-label">Evaluacion Psicometrica Presentada</label>
-      <select name="evalPsicomPres" id="evalPsicomPres" class="form-select" onchange="mostrarRes('evalPsicomPres', 'campoEvalPsicomRes')">
-        <option selected="true" value="0" disabled>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalPsicomPres" id="evalPsicomPres" class="form-select"
+         onchange="mostrarRes('evalPsicomPres', 'campoEvalPsicomRes')">
+         <option selected="true" value="0" disabled>Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalPsicomRes">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalPsicomRes">
       <label for="campoEvalPsicom" class="form-label">Resultado Evaluacion Psicometrica</label>
       <input type="text" name="campoEvalPsicom" id="campoEvalPsicom" class="form-control" disabled>
-    </div>
-    
-    
-    
-    <div class="col-md-4">
+   </div>
+
+
+
+   <div class="col-md-4">
       <label for="evalTecniReq" class="form-label">Evaluacion Tecnica Requerida</label>
-      <select name="evalTecniReq" id="evalTecniReq" class="form-select" onchange="mostrarPres('evalTecniReq', 'campoEvalTecniReq', 'campoEvalTecniRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalTecniReq" id="evalTecniReq" class="form-select"
+         onchange="mostrarPres('evalTecniReq', 'campoEvalTecniReq', 'campoEvalTecniRes')">
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalTecniReq">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalTecniReq">
       <label for="evalTecniPres" class="form-label">Evaluacion Tecnica Presentada</label>
-      <select name="evalTecniPres" id="evalTecniPres" class="form-select" onchange="mostrarRes('evalTecniPres', 'campoEvalTecniRes')">
-        <option selected="true" value="0" disabled>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalTecniPres" id="evalTecniPres" class="form-select"
+         onchange="mostrarRes('evalTecniPres', 'campoEvalTecniRes')">
+         <option selected="true" value="0" disabled>Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalTecniRes">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalTecniRes">
       <label for="campoEvalTecni" class="form-label">Resultado Evaluacion Tecnica</label>
       <input type="text" name="campoEvalTecni" id="campoEvalTecni" class="form-control" disabled>
-    </div>
-    
-    <div class="col-md-4">
+   </div>
+
+   <div class="col-md-4">
       <label for="evalConoReq" class="form-label">Evaluacion de Conocimientos Requerida</label>
-      <select name="evalConoReq" id="evalConoReq" class="form-select" onchange="mostrarPres('evalConoReq', 'campoEvalConoReq', 'campoEvalConoRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalConoReq" id="evalConoReq" class="form-select"
+         onchange="mostrarPres('evalConoReq', 'campoEvalConoReq', 'campoEvalConoRes')">
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalConoReq">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalConoReq">
       <label for="evalConoPres" class="form-label">Evaluacion de Conocimientos Presentada</label>
-      <select name="evalConoPres" id="evalConoPres" class="form-select" onchange="mostrarRes('evalConoPres', 'campoEvalConoRes')">
-        <option selected="true" value="0" disabled>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="evalConoPres" id="evalConoPres" class="form-select"
+         onchange="mostrarRes('evalConoPres', 'campoEvalConoRes')">
+         <option selected="true" value="0" disabled>Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEvalConoRes">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEvalConoRes">
       <label for="campoEvalCono" class="form-label">Resultado Evaluacion de Conocimientos
       </label>
       <input type="text" name="campoEvalCono" id="campoEvalCono" class="form-control" disabled>
-    </div>
-    
-    <div class="col-md-4">
+   </div>
+
+   <div class="col-md-4">
       <label for="entrevistaFinReq" class="form-label">Entrevista Final Requerida</label>
-      <select name="entrevistaFinReq" id="entrevistaFinReq" class="form-select" onchange="mostrarPres('entrevistaFinReq', 'campoEntrevistaFinReq', 'campoEntrevistaFinRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="entrevistaFinReq" id="entrevistaFinReq" class="form-select"
+         onchange="mostrarPres('entrevistaFinReq', 'campoEntrevistaFinReq', 'campoEntrevistaFinRes')">
+         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEntrevistaFinReq">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEntrevistaFinReq">
       <label for="entrevistaFinPres" class="form-label">Entrevista Final Presentada</label>
-      <select name="entrevistaFinPres" id="entrevistaFinPres" class="form-select" onchange="mostrarRes('entrevistaFinPres', 'campoEntrevistaFinRes')">
-        <option selected="true" value="0" disabled>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="entrevistaFinPres" id="entrevistaFinPres" class="form-select"
+         onchange="mostrarRes('entrevistaFinPres', 'campoEntrevistaFinRes')">
+         <option selected="true" value="0" disabled>Elige...</option>
+         <option value="0">No</option>
+         <option value="1">Sí</option>
       </select>
-    </div>
-    
-    <div class="col-md-4 selectores" id="campoEntrevistaFinRes">
+   </div>
+
+   <div class="col-md-4 selectores" id="campoEntrevistaFinRes">
       <label for="campoEntrevistaFin" class="form-label">Resultado Entrevista Final</label>
       <input type="text" name="campoEntrevistaFin" id="campoEntrevistaFin" class="form-control" disabled>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    <div class="col-12">
-      <button class="btn btn-primary" id="enviar" >Enviar</button>
+      <button class="btn btn-primary" id="enviar">Enviar</button>
 
    </div>
 </form>
