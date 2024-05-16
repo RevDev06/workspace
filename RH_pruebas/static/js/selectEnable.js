@@ -30,6 +30,7 @@ function mostrarPres(reqId, presId, resId) {
      }
    } else {
      if (campo) {
+       campo.value = '';
        campo.disabled = true;
      }
    }
