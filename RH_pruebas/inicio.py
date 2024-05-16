@@ -737,9 +737,47 @@ def seleccionarCandidato(idC, idV):
 @app.route("/captCand", methods=['GET','POST'])
 def capturarCandidato():
     if request.method == 'POST':
-        #sex = request.form['sexo']
-        #edoc = request.form['idEstadoCivil']
-        print (request.form['sexo'], request.form['idEstadoCivil'])
+        idVacan = request.form['idVacante']
+        curp = request.form['curp']
+        rfc = request.form['rfc']
+        nombre = request.form['nombre']
+        calle = request.form['Calle']
+        num = request.form['numExtInt']
+        colonia = request.form['domColonia']
+        tel1 = request.form['tel1']
+        tel2 = request.form['tel2']
+        correo = request.form['correo']
+        edad = request.form['Edad']
+        sex = request.form['sexo']
+        edoc = request.form['idEstadoCivil']
+        esco = request.form['idEscolaridad']
+        gdoavan = request.form['idGradoAvance']
+        carre = request.form['idCarrera']
+
+        entrereq = request.form['entrevistaReq']
+        entrepres = request.form['entrevistaPres']
+        entreresul = request.form['campoEntrevista']
+        evalMedicReq = request.form['evalMedicaReq']
+        evalMedicPres = request.form['evalMedicaPres']
+        evalMedicResul = request.form['campoEvalMedica']
+        evalPsicolReq = request.form['evalPsicoloReq']
+        evalPsicolPres = request.form['evalPsicoloPres']
+        evalPsicolResul = request.form['campoEvalPsicolo']
+        evalPsicomReq = request.form['evalPsicomReq']
+        evalPsicomPres = request.form['evalPsicomPres']
+        evalPsicomResul = request.form['campoEvalPsicom']
+        evalTecReq = request.form['evalTecniReq']
+        evalTecPres = request.form['evalTecniPres']
+        evalTecResul = request.form['campoEvalTecni']
+        evalConocReq = request.form['evalConoReq']
+        evalConocPres = request.form['evalConoPres']
+        evalConocResul = request.form['campoEvalCono']
+        entreFinReq = request.form['entrevistaFinReq']
+        entreFinPres = request.form['entrevistaFinPres']
+        entreFinResul = request.form['campoEntrevistaFin']
+        print (idVacan, curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, 
+               evalMedicReq, evalMedicPres, evalMedicResul, evalPsicolReq, evalPsicolPres, evalPsicolResul, evalPsicomReq, evalPsicomPres, evalPsicomResul, 
+               evalTecReq, evalTecPres, evalTecResul, evalConocReq, evalConocPres, evalConocResul, entreFinReq, entreFinPres, entreFinResul)
     return redirect(url_for("candidatos"))
 
 

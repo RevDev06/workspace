@@ -34,16 +34,16 @@
 
    <div class="col-md-6">
       <label for="curp" class="form-label">CURP</label>
-      <input type="text" class="form-control datosCand" name="curp" id="curp"></input>
+      <input type="text" class="form-control datosCand" name="curp" id="curp" minlength="18" maxlength="18"></input>
    </div>
    <div class="col-md-6">
       <label for="rfc" class="form-label">RFC</label>
-      <input type="text" class="form-control datosCand" name="rfc" id="rfc"></input>
+      <input type="text" class="form-control datosCand" name="rfc" id="rfc" minlength="12" maxlength="13"></input>
    </div>
 
    <div class="col-md-12">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control datosCand" name="nombre" id="nombre"></input>
+      <input type="text" class="form-control datosCand" name="nombre" id="nombre" minlength="10" maxlength="40"></input>
    </div>
 
 
@@ -52,15 +52,15 @@
 
    <div class="col-md-4">
       <label for="Calle" class="form-label">Calle</label>
-      <input type="text" class="form-control datosCand" name="Calle" id="Calle"></input>
+      <input type="text" class="form-control datosCand" name="Calle" id="Calle" minlength="3" maxlength="40"></input>
    </div>
    <div class="col-md-4">
       <label for="numExtInt" class="form-label">Num Ext/Int</label>
-      <input type="number" class="form-control datosCand" name="numExtInt" id="numExtInt"></input>
+      <input type="number" class="form-control datosCand" name="numExtInt" id="numExtInt" min="1"></input>
    </div>
    <div class="col-md-4">
       <label for="domColonia" class="form-label">Fraccionamiento/Colonia</label>
-      <input type="text" class="form-control datosCand" name="domColonia" id="domColonia"></input>
+      <input type="text" class="form-control datosCand" name="domColonia" id="domColonia" minlength="3" maxlength="40"></input>
    </div>
    <div class="col-md-4">
       <label for="tel1" class="form-label">Telefono 1</label>
@@ -72,16 +72,16 @@
    </div>
    <div class="col-md-4">
       <label for="correo" class="form-label">Correo</label>
-      <input type="email" class="form-control datosCand" name="correo" id="correo"></input>
+      <input type="email" class="form-control datosCand" name="correo" id="correo" maxlength="40"></input>
    </div>
    <div class="col-md-4">
       <label for="Edad" class="form-label">Edad</label>
-      <input type="number" class="form-control datosCand" name="Edad" id="Edad"></input>
+      <input type="number" class="form-control datosCand" name="Edad" id="Edad" min="18" max="100"></input>
    </div>
    <div class="col-md-4">
       <label for="sexo" class="form-label">Sexo</label>
       <select name="sexo" id="sexo" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
          <option value="Indistinto">Indistinto</option>
          <option value="Hombre">Hombre</option>
          <option value="Mujer">Mujer</option>
@@ -90,7 +90,7 @@
    <div class="col-md-4">
       <label for="idEstadoCivil" class="form-label">Estado Civil</label>
       <select name="idEstadoCivil" id="idEstadoCivil" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
          {%for i in catEdoCivil%}
          <option value="{{i.0}}">{{i.1}}</option>
          {% endfor %}
@@ -100,7 +100,7 @@
    <div class="col-md-4">
       <label for="idEscolaridad" class="form-label">Escolaridad</label>
       <select name="idEscolaridad" id="idEscolaridad" class="form-select catalogo" onChange="miFunc1()">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
          {%
          for i in catEscolaridad
          %}
@@ -126,7 +126,7 @@
    <div class="col-md-4">
       <label for="idGradoAvance" class="form-label">Grado Avance</label>
       <select name="idGradoAvance" id="idGradoAvance" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
          {%
          for i in catGradoAvance
          %}
@@ -137,7 +137,7 @@
    <div class="col-md-4">
       <label for="idCarrera" class="form-label">Carrera / Especialidad</label>
       <select name="idCarrera" id="idCarrera" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0">Elige...</option>
+         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
          {%
          for i in catCarrera
          %}
@@ -149,7 +149,7 @@
    <div class="col-md-4">
       <label for="entrevistaReq" class="form-label">Entrevista Requerida</label>
       <select name="entrevistaReq" id="entrevistaReq" class="form-select" onchange="mostrarPres('entrevistaReq', 'campoEntrevistaReq', 'campoEntrevistaRes')">
-        <option selected="true" disabled="disabled" value="0">Elige...</option>
+        <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>

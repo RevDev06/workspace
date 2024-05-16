@@ -1,6 +1,7 @@
 function mostrarPres(reqId, presId, resId) {
    var seleccion = document.getElementById(reqId).value;
    var campoPres = document.getElementById(presId);
+   var present = campoPres.querySelector('select');
    var campoRes = document.getElementById(resId);
    var resultado = campoRes.querySelector('input');
  
@@ -11,8 +12,10 @@ function mostrarPres(reqId, presId, resId) {
      campoRes.style.display = "block";
    } else {
      campoPres.style.display = "none";
+     present.children[1].selected = true;
      campoRes.style.display = "none";
      if (resultado) {
+       resultado.value = ' ';
        resultado.disabled = true; 
      }
    }
@@ -30,7 +33,7 @@ function mostrarPres(reqId, presId, resId) {
      }
    } else {
      if (campo) {
-       campo.value = '';
+       campo.value = ' ';
        campo.disabled = true;
      }
    }

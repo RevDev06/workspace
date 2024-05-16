@@ -10,10 +10,10 @@ function validarInputs() {
         if (inps[x].value.trim() == '' || !inps[x].validity.valid) {
             valido = false;
             inps[x].style.background='#FFDDDD';
-            break;
-        } else {
+            //break;
+        } /*else {
             inps[x].style.background='#FFFFFF';
-        }
+        }*/
     }
     return valido;
 }
@@ -24,10 +24,10 @@ function validarCatalogos() {
         if (cat[y].value == 0 || !cat[y].validity.valid) {
             valid = false;
             cat[y].style.background='#FFDDDD';
-            break;
-        } else {
+            //break;
+        } /*else {
             cat[y].style.background='#FFFFFF';
-        }
+        }*/
     }
     return valid;
 }
@@ -42,7 +42,7 @@ function enviar() {
     }
 }
 
-/*document.formulario.addEventListener("input", validacion, false);
+document.formulario.addEventListener("input", validacion, false);
 function validacion(e) {
     let elemento = e.target;
     if (elemento.validity.valid) {
@@ -50,4 +50,4 @@ function validacion(e) {
     } else {
         elemento.style.background='#FFDDDD';
     }
-}*/
+}
