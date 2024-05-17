@@ -100,7 +100,7 @@
    <div class="col-md-4">
       <label for="idEscolaridad" class="form-label">Escolaridad</label>
       <select name="idEscolaridad" id="idEscolaridad" class="form-select catalogo" onChange="miFunc1()">
-         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
+         <option selected="true" disabled="disabled" value="1" hidden>Elige...</option>
          {%
          for i in catEscolaridad
          %}
@@ -123,10 +123,12 @@
          }
       </script>
    </div>
+
+   
    <div class="col-md-4">
       <label for="idGradoAvance" class="form-label">Grado Avance</label>
       <select name="idGradoAvance" id="idGradoAvance" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
+         <option selected="true" disabled="disabled" value="1" hidden>Elige...</option>
          {%
          for i in catGradoAvance
          %}
@@ -134,10 +136,12 @@
          {% endfor %}
       </select>
    </div>
+
+
    <div class="col-md-4">
       <label for="idCarrera" class="form-label">Carrera / Especialidad</label>
       <select name="idCarrera" id="idCarrera" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
+         <option selected="true" disabled="disabled" value="1" hidden>Elige...</option>
          {%
          for i in catCarrera
          %}
@@ -167,7 +171,7 @@
 
    <div class="col-md-4 selectores" id="campoEntrevistaRes">
       <label for="campoEntrevista" class="form-label">Resultado Entrevista</label>
-      <input type="text" name="campoEntrevista" id="campoEntrevista" class="form-control" disabled>
+      <input type="text" name="campoEntrevista" id="campoEntrevista" value="NO APLICA" class="form-control" disabled>
    </div>
 
    <div class="col-md-4">
@@ -192,7 +196,7 @@
 
    <div class="col-md-4 selectores" id="campoEvalMedicaRes">
       <label for="campoEvalMedica" class="form-label">Resultado Evaluacion Medica</label>
-      <input type="text" name="campoEvalMedica" id="campoEvalMedica" class="form-control" disabled>
+      <input type="text" name="campoEvalMedica" id="campoEvalMedica" value="NO APLICA" class="form-control" disabled>
    </div>
 
 
@@ -218,7 +222,7 @@
 
    <div class="col-md-4 selectores" id="campoEvalPsicoloRes">
       <label for="campoEvalPsicolo" class="form-label">Resultado Evaluacion Psicologica</label>
-      <input type="text" name="campoEvalPsicolo" id="campoEvalPsicolo" class="form-control" disabled>
+      <input type="text" name="campoEvalPsicolo" id="campoEvalPsicolo" value="NO APLICA" class="form-control" disabled>
    </div>
 
 
@@ -244,7 +248,7 @@
 
    <div class="col-md-4 selectores" id="campoEvalPsicomRes">
       <label for="campoEvalPsicom" class="form-label">Resultado Evaluacion Psicometrica</label>
-      <input type="text" name="campoEvalPsicom" id="campoEvalPsicom" class="form-control" disabled>
+      <input type="text" name="campoEvalPsicom" id="campoEvalPsicom" value="NO APLICA" class="form-control" disabled>
    </div>
 
 
@@ -271,7 +275,7 @@
 
    <div class="col-md-4 selectores" id="campoEvalTecniRes">
       <label for="campoEvalTecni" class="form-label">Resultado Evaluacion Tecnica</label>
-      <input type="text" name="campoEvalTecni" id="campoEvalTecni" class="form-control" disabled>
+      <input type="text" name="campoEvalTecni" id="campoEvalTecni" value="NO APLICA" class="form-control" disabled>
    </div>
 
    <div class="col-md-4">
@@ -297,7 +301,7 @@
    <div class="col-md-4 selectores" id="campoEvalConoRes">
       <label for="campoEvalCono" class="form-label">Resultado Evaluacion de Conocimientos
       </label>
-      <input type="text" name="campoEvalCono" id="campoEvalCono" class="form-control" disabled>
+      <input type="text" name="campoEvalCono" id="campoEvalCono" value="NO APLICA" class="form-control" disabled>
    </div>
 
    <div class="col-md-4">
@@ -322,7 +326,7 @@
 
    <div class="col-md-4 selectores" id="campoEntrevistaFinRes">
       <label for="campoEntrevistaFin" class="form-label">Resultado Entrevista Final</label>
-      <input type="text" name="campoEntrevistaFin" id="campoEntrevistaFin" class="form-control" disabled>
+      <input type="text" name="campoEntrevistaFin" id="campoEntrevistaFin" value="NO APLICA" class="form-control" disabled>
     </div>
     
     
