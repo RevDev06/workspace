@@ -15,7 +15,7 @@ function mostrarPres(reqId, presId, resId) {
      present.children[1].selected = true;
      campoRes.style.display = "none";
      if (resultado) {
-       resultado.value = ' ';
+       resultado.value = 'NO APLICA/NO PRESENTADA';
        resultado.disabled = true; 
      }
    }
@@ -33,7 +33,7 @@ function mostrarPres(reqId, presId, resId) {
      }
    } else {
      if (campo) {
-       campo.value = ' ';
+       campo.value = 'NO APLICA/NO PRESENTADA';
        campo.disabled = true;
      }
    }

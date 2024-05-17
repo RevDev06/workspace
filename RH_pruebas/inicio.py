@@ -734,50 +734,101 @@ def seleccionarCandidato(idC, idV):
     conn.commit()
     return redirect(url_for("verCandidatosVacante", idV = idV))
 
-@app.route("/captCand", methods=['GET','POST'])
+@app.route("/captCand", methods=['GET', 'POST'])
 def capturarCandidato():
     if request.method == 'POST':
-        idVacan = request.form['idVacante']
-        curp = request.form['curp']
-        rfc = request.form['rfc']
-        nombre = request.form['nombre']
-        calle = request.form['Calle']
-        num = request.form['numExtInt']
-        colonia = request.form['domColonia']
-        tel1 = request.form['tel1']
-        tel2 = request.form['tel2']
-        correo = request.form['correo']
-        edad = request.form['Edad']
-        sex = request.form['sexo']
-        edoc = request.form['idEstadoCivil']
-        esco = request.form['idEscolaridad']
-        gdoavan = request.form['idGradoAvance']
-        carre = request.form['idCarrera']
+        idVacan = request.form.get('idVacante', '')
+        curp = request.form.get('curp', '').strip()
+        rfc = request.form.get('rfc', '').strip()
+        nombre = request.form.get('nombre', '').strip()
+        calle = request.form.get('Calle', '').strip()
+        num = request.form.get('numExtInt', '')
+        colonia = request.form.get('domColonia', '').strip()
+        tel1 = request.form.get('tel1', '')
+        tel2 = request.form.get('tel2', '')
+        correo = request.form.get('correo', '').strip()
+        edad = request.form.get('Edad', '')
+        sex = request.form.get('sexo', '')
+        edoc = request.form.get('idEstadoCivil', '')
+        esco = request.form.get('idEscolaridad', '')
+        gdoavan = request.form.get('idGradoAvance', '1')
+        carre = request.form.get('idCarrera', '1')
 
-        entrereq = request.form['entrevistaReq']
-        entrepres = request.form['entrevistaPres']
-        entreresul = request.form['campoEntrevista']
-        evalMedicReq = request.form['evalMedicaReq']
-        evalMedicPres = request.form['evalMedicaPres']
-        evalMedicResul = request.form['campoEvalMedica']
-        evalPsicolReq = request.form['evalPsicoloReq']
-        evalPsicolPres = request.form['evalPsicoloPres']
-        evalPsicolResul = request.form['campoEvalPsicolo']
-        evalPsicomReq = request.form['evalPsicomReq']
-        evalPsicomPres = request.form['evalPsicomPres']
-        evalPsicomResul = request.form['campoEvalPsicom']
-        evalTecReq = request.form['evalTecniReq']
-        evalTecPres = request.form['evalTecniPres']
-        evalTecResul = request.form['campoEvalTecni']
-        evalConocReq = request.form['evalConoReq']
-        evalConocPres = request.form['evalConoPres']
-        evalConocResul = request.form['campoEvalCono']
-        entreFinReq = request.form['entrevistaFinReq']
-        entreFinPres = request.form['entrevistaFinPres']
-        entreFinResul = request.form['campoEntrevistaFin']
-        print (idVacan, curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, 
-               evalMedicReq, evalMedicPres, evalMedicResul, evalPsicolReq, evalPsicolPres, evalPsicolResul, evalPsicomReq, evalPsicomPres, evalPsicomResul, 
-               evalTecReq, evalTecPres, evalTecResul, evalConocReq, evalConocPres, evalConocResul, entreFinReq, entreFinPres, entreFinResul)
+        entrereq = request.form.get('entrevistaReq', '')
+        entrepres = request.form.get('entrevistaPres', '')
+        entreresul = request.form.get('campoEntrevista', 'NO APLICA/NO PRESENTADA').strip()
+        evalMedicReq = request.form.get('evalMedicaReq', '')
+        evalMedicPres = request.form.get('evalMedicaPres', '')
+        evalMedicResul = request.form.get('campoEvalMedica', 'NO APLICA/NO PRESENTADA').strip()
+        evalPsicolReq = request.form.get('evalPsicoloReq', '')
+        evalPsicolPres = request.form.get('evalPsicoloPres', '')
+        evalPsicolResul = request.form.get('campoEvalPsicolo', 'NO APLICA/NO PRESENTADA').strip()
+        evalPsicomReq = request.form.get('evalPsicomReq', '')
+        evalPsicomPres = request.form.get('evalPsicomPres', '')
+        evalPsicomResul = request.form.get('campoEvalPsicom', 'NO APLICA/NO PRESENTADA').strip()
+        evalTecReq = request.form.get('evalTecniReq', '')
+        evalTecPres = request.form.get('evalTecniPres', '')
+        evalTecResul = request.form.get('campoEvalTecni', 'NO APLICA/NO PRESENTADA').strip()
+        evalConocReq = request.form.get('evalConoReq', '')
+        evalConocPres = request.form.get('evalConoPres', '')
+        evalConocResul = request.form.get('campoEvalCono', 'NO APLICA/NO PRESENTADA').strip()
+        entreFinReq = request.form.get('entrevistaFinReq', '')
+        entreFinPres = request.form.get('entrevistaFinPres', '')
+        entreFinResul = request.form.get('campoEntrevistaFin', 'NO APLICA/NO PRESENTADA').strip()
+
+        print("idVacante:", idVacan)
+        print("curp:", curp)
+        print("rfc:", rfc)
+        print("nombre:", nombre)
+        print("calle:", calle)
+        print("numExtInt:", num)
+        print("domColonia:", colonia)
+        print("tel1:", tel1)
+        print("tel2:", tel2)
+        print("correo:", correo)
+        print("Edad:", edad)
+        print("sexo:", sex)
+        print("idEstadoCivil:", edoc)
+        print("idEscolaridad:", esco)
+        print("idGradoAvance:", gdoavan)
+        print("idCarrera:", carre)
+        print("entrevistaReq:", entrereq)
+        print("entrevistaPres:", entrepres)
+        print("campoEntrevista:", entreresul)
+        print("evalMedicaReq:", evalMedicReq)
+        print("evalMedicaPres:", evalMedicPres)
+        print("campoEvalMedica:", evalMedicResul)
+        print("evalPsicoloReq:", evalPsicolReq)
+        print("evalPsicoloPres:", evalPsicolPres)
+        print("campoEvalPsicolo:", evalPsicolResul)
+        print("evalPsicomReq:", evalPsicomReq)
+        print("evalPsicomPres:", evalPsicomPres)
+        print("campoEvalPsicom:", evalPsicomResul)
+        print("evalTecniReq:", evalTecReq)
+        print("evalTecniPres:", evalTecPres)
+        print("campoEvalTecni:", evalTecResul)
+        print("evalConoReq:", evalConocReq)
+        print("evalConoPres:", evalConocPres)
+        print("campoEvalCono:", evalConocResul)
+        print("entrevistaFinReq:", entreFinReq)
+        print("entrevistaFinPres:", entreFinPres)
+        print("campoEntrevistaFin:", entreFinResul)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        cursor = conn.cursor()
+        cursor.execute("SELECT idRequisicion, idPuesto FROM vacante WHERE idVacante = %s", (idVacan))
+        ids = cursor.fetchall()
+
+        cursor.execute("INSERT INTO candidato (idVacante, idRequisicion, idPuesto, CURP, RFC, nombre, domCalle, domNumExtInt, domColonia, tel1, tel2, correoE, edad, sexo, "
+                       "idEstadoCivil, idEscolaridad, idGradoAvance, idCarrera, entrevSelecReq, entrevSelecPresen, entrevSelecResult, evalMedicaReq, evalMedicaPresen, "
+                       "evalMedicaResult, evalPsicolgReq, evalPsicologPresen, evalPsicologResult, evalPsicometReq, evalPsicometPresene, evalPsicometResult, "
+                       "evalTecnicaReq, evalTecnicaPresen, evalTecnicaResult, evalConocReq, evalConocPresen, evalConocResult, entrevFinalReq, entrevFinalPresen, entrevFinalResul) "
+                       "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                       (idVacan, ids[0][0], ids[0][1], curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, 
+                        evalMedicReq, evalMedicPres, evalMedicResul, evalPsicolReq, evalPsicolPres, evalPsicolResul, evalPsicomReq, evalPsicomPres, evalPsicomResul, evalTecReq, evalTecPres,
+                        evalTecResul, evalConocReq, evalConocPres, evalConocResul, entreFinReq, entreFinPres, entreFinResul))
+        conn.commit()
+
     return redirect(url_for("candidatos"))
 
 
