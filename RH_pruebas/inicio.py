@@ -715,6 +715,9 @@ def showSelectedCand(idV):
     datos = cursor.fetchall()
     return render_template("candSelecc.html", datos = datos, nomPuesto = nomPuestoVacante[0][0])
 
+
+
+
 @app.route("/borrarCand/<string:idC>/<string:idV>")
 def borrarCand(idC, idV):
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
@@ -814,22 +817,49 @@ def capturarCandidato():
         print("entrevistaFinPres:", entreFinPres)
         print("campoEntrevistaFin:", entreFinResul)
 
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("SELECT idRequisicion, idPuesto FROM vacante WHERE idVacante = %s", (idVacan))
         ids = cursor.fetchall()
 
         cursor.execute("INSERT INTO candidato (idVacante, idRequisicion, idPuesto, CURP, RFC, nombre, domCalle, domNumExtInt, domColonia, tel1, tel2, correoE, edad, sexo, "
-                       "idEstadoCivil, idEscolaridad, idGradoAvance, idCarrera, entrevSelecReq, entrevSelecPresen, entrevSelecResult, evalMedicaReq, evalMedicaPresen, "
-                       "evalMedicaResult, evalPsicolgReq, evalPsicologPresen, evalPsicologResult, evalPsicometReq, evalPsicometPresene, evalPsicometResult, "
-                       "evalTecnicaReq, evalTecnicaPresen, evalTecnicaResult, evalConocReq, evalConocPresen, evalConocResult, entrevFinalReq, entrevFinalPresen, entrevFinalResul) "
-                       "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
-                       (idVacan, ids[0][0], ids[0][1], curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, 
+                        "idEstadoCivil, idEscolaridad, idGradoAvance, idCarrera, entrevSelecReq, entrevSelecPresen, entrevSelecResult, evalMedicaReq, evalMedicaPresen, "
+                        "evalMedicaResult, evalPsicolgReq, evalPsicologPresen, evalPsicologResult, evalPsicometReq, evalPsicometPresene, evalPsicometResult, "
+                        "evalTecnicaReq, evalTecnicaPresen, evalTecnicaResult, evalConocReq, evalConocPresen, evalConocResult, entrevFinalReq, entrevFinalPresen, entrevFinalResul) "
+                        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                        (idVacan, ids[0][0], ids[0][1], curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, 
                         evalMedicReq, evalMedicPres, evalMedicResul, evalPsicolReq, evalPsicolPres, evalPsicolResul, evalPsicomReq, evalPsicomPres, evalPsicomResul, evalTecReq, evalTecPres,
                         evalTecResul, evalConocReq, evalConocPres, evalConocResul, entreFinReq, entreFinPres, entreFinResul))
         conn.commit()
 
     return redirect(url_for("candidatos"))
+
+@app.route("/editarCand/<string:idC>/<string:idV>")
+def editarCand(idC, idV):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT b.folio, a.idVacante, c.nomPuesto FROM vacante a, requisicion b, puesto c WHERE a.idRequisicion=b.idRequisicion AND a.idPuesto=c.idPuesto AND b.idPuesto=c.idPuesto AND a.idVacante=%s", (idV))
+    datos = cursor.fetchall()
+    
+    cursor.execute('select idEstadoCivil, descripcion from estado_civil ')
+    datos2 = cursor.fetchall()
+
+    cursor.execute('select idEscolaridad, descripcion from escolaridad ')
+    datos3 = cursor.fetchall()
+
+    cursor.execute('select idGradoAvance, descripcion from grado_avance ')
+    datos4 = cursor.fetchall()
+
+    cursor.execute('select idCarrera, descripcion from carrera ')
+    datos5 = cursor.fetchall()
+
+    cursor.execute("SELECT idVacante, idRequisicion, idPuesto, CURP, RFC, nombre, domCalle, domNumExtInt, domColonia, tel1, tel2, correoE, edad, sexo, "
+                        "idEstadoCivil, idEscolaridad, idGradoAvance, idCarrera, entrevSelecReq, entrevSelecPresen, entrevSelecResult, evalMedicaReq, evalMedicaPresen, "
+                        "evalMedicaResult, evalPsicolgReq, evalPsicologPresen, evalPsicologResult, evalPsicometReq, evalPsicometPresene, evalPsicometResult, "
+                        "evalTecnicaReq, evalTecnicaPresen, evalTecnicaResult, evalConocReq, evalConocPresen, evalConocResult, entrevFinalReq, entrevFinalPresen, entrevFinalResul FROM candidato WHERE idCandidato = %s", (idC)
+                        )
+    datosOp = cursor.fetchall()
+    return render_template("editarCand.html", dato = datos[0], catEdoCivil=datos2, catEscolaridad=datos3, catGradoAvance=datos4, catCarrera=datos5, datosOp=datosOp[0] )
 
 
 
@@ -837,4 +867,4 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-    #Boton en candidato seleccionado para generar el contrato
+    #Boton en candidato seleccionado para generar el contrato 

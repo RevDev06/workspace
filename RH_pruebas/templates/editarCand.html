@@ -34,16 +34,16 @@
 
    <div class="col-md-6">
       <label for="curp" class="form-label">CURP</label>
-      <input type="text" class="form-control datosCand" name="curp" id="curp" minlength="18" maxlength="18"></input>
+      <input type="text" class="form-control datosCand" name="curp" id="curp" minlength="18" maxlength="18" value="{{datosOp.3}}"></input>
    </div>
    <div class="col-md-6">
       <label for="rfc" class="form-label">RFC</label>
-      <input type="text" class="form-control datosCand" name="rfc" id="rfc" minlength="12" maxlength="13"></input>
+      <input type="text" class="form-control datosCand" name="rfc" id="rfc" minlength="12" maxlength="13" value="{{datosOp.4}}"></input>
    </div>
 
    <div class="col-md-12">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control datosCand" name="nombre" id="nombre" minlength="10" maxlength="40"></input>
+      <input type="text" class="form-control datosCand" name="nombre" id="nombre" minlength="10" maxlength="40" value="{{datosOp.5}}"></input>
    </div>
 
 
@@ -52,47 +52,48 @@
 
    <div class="col-md-4">
       <label for="Calle" class="form-label">Calle</label>
-      <input type="text" class="form-control datosCand" name="Calle" id="Calle" minlength="3" maxlength="40"></input>
+      <input type="text" class="form-control datosCand" name="Calle" id="Calle" minlength="3" maxlength="40" value="{{datosOp.6}}"></input>
    </div>
    <div class="col-md-4">
       <label for="numExtInt" class="form-label">Num Ext/Int</label>
-      <input type="number" class="form-control datosCand" name="numExtInt" id="numExtInt" min="1"></input>
+      <input type="number" class="form-control datosCand" name="numExtInt" id="numExtInt" min="1" value="{{datosOp.7}}"></input>
    </div>
    <div class="col-md-4">
       <label for="domColonia" class="form-label">Fraccionamiento/Colonia</label>
-      <input type="text" class="form-control datosCand" name="domColonia" id="domColonia" minlength="3" maxlength="40"></input>
+      <input type="text" class="form-control datosCand" name="domColonia" id="domColonia" minlength="3" maxlength="40" value="{{datosOp.8}}"></input>
    </div>
    <div class="col-md-4">
       <label for="tel1" class="form-label">Telefono 1</label>
-      <input type="text" class="form-control datosCand" pattern="\d{3}-\d{3}-\d{4}" name="tel1" id="tel1"></input>
+      <input type="text" class="form-control datosCand" pattern="\d{3}-\d{3}-\d{4}" name="tel1" id="tel1" value="{{datosOp.9}}"></input>
    </div>
    <div class="col-md-4">
       <label for="tel2" class="form-label">Telefono 2</label>
-      <input type="text" class="form-control datosCand" pattern="\d{3}-\d{3}-\d{4}" name="tel2" id="tel2"></input>
+      <input type="text" class="form-control datosCand" pattern="\d{3}-\d{3}-\d{4}" name="tel2" id="tel2" value="{{datosOp.10}}"></input>
    </div>
    <div class="col-md-4">
       <label for="correo" class="form-label">Correo</label>
-      <input type="email" class="form-control datosCand" name="correo" id="correo" maxlength="40"></input>
+      <input type="email" class="form-control datosCand" name="correo" id="correo" maxlength="40" value="{{datosOp.11}}"></input>
    </div>
    <div class="col-md-4">
       <label for="Edad" class="form-label">Edad</label>
-      <input type="number" class="form-control datosCand" name="Edad" id="Edad" min="18" max="100"></input>
+      <input type="number" class="form-control datosCand" name="Edad" id="Edad" min="18" max="100" value="{{datosOp.12}}"></input>
    </div>
    <div class="col-md-4">
       <label for="sexo" class="form-label">Sexo</label>
       <select name="sexo" id="sexo" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
-         <option value="Indistinto">Indistinto</option>
-         <option value="Hombre">Hombre</option>
-         <option value="Mujer">Mujer</option>
+         <option disabled="disabled" value="0" hidden>Elige...</option>
+         <option value="Indistinto" {% if datosOp.13 == "Indistinto" %}selected{% endif %}>Indistinto</option>
+         <option value="Hombre" {% if datosOp.13 == "Hombre" %}selected{% endif %}>Hombre</option>
+         <option value="Mujer" {% if datosOp.13 == "Mujer" %}selected{% endif %}>Mujer</option>
       </select>
    </div>
+
    <div class="col-md-4">
       <label for="idEstadoCivil" class="form-label">Estado Civil</label>
       <select name="idEstadoCivil" id="idEstadoCivil" class="form-select catalogo">
-         <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
+         <option disabled="disabled" value="0" hidden>Elige...</option>
          {%for i in catEdoCivil%}
-         <option value="{{i.0}}">{{i.1}}</option>
+         <option value="{{i.0}}" {% if datosOp.14 == i.0 %}selected{% endif %}>{{i.1}}</option>
          {% endfor %}
       </select>
 
@@ -100,11 +101,9 @@
    <div class="col-md-4">
       <label for="idEscolaridad" class="form-label">Escolaridad</label>
       <select name="idEscolaridad" id="idEscolaridad" class="form-select catalogo" onChange="miFunc1()">
-         <option selected="true" disabled="disabled" value="1" hidden>Elige...</option>
-         {%
-         for i in catEscolaridad
-         %}
-         <option value="{{i.0}}">{{i.1}}</option>
+         <option disabled="disabled" value="1" hidden>Elige...</option>
+         {% for i in catEscolaridad %}
+         <option value="{{i.0}}" {% if datosOp.15 == i.0 %}selected{% endif %}>{{i.1}}</option>
          {% endfor %}
       </select>
       <script>
@@ -129,10 +128,8 @@
       <label for="idGradoAvance" class="form-label">Grado Avance</label>
       <select name="idGradoAvance" id="idGradoAvance" class="form-select catalogo">
          <option selected="true" disabled="disabled" value="1" hidden>Elige...</option>
-         {%
-         for i in catGradoAvance
-         %}
-         <option value="{{i.0}}">{{i.1}}</option>
+         {% for i in catGradoAvance %}
+         <option value="{{i.0}}" {% if datosOp.16 == i.0 %}selected{% endif %}>{{i.1}}</option>
          {% endfor %}
       </select>
    </div>
@@ -145,17 +142,17 @@
          {%
          for i in catCarrera
          %}
-         <option value="{{i.0}}">{{i.1}}</option>
+         <option value="{{i.0}}" {% if datosOp.17 == i.0 %}selected{% endif %}>{{i.1}}</option>
          {% endfor %}
       </select>
 
    </div>
    <div class="col-md-4">
       <label for="entrevistaReq" class="form-label">Entrevista Requerida</label>
-      <select name="entrevistaReq" id="entrevistaReq" class="form-select evaluacion" onchange="mostrarPres('entrevistaReq', 'campoEntrevistaReq', 'campoEntrevistaRes')">
-        <option selected="true" disabled="disabled" value="1" hidden>Elige...</option>
-        <option value="0">No</option>
-        <option value="1">Sí</option>
+      <select name="entrevistaReq" id="entrevistaReq" class="form-select evaluacion" onload="mostrarPres('entrevistaReq', 'campoEntrevistaReq', 'campoEntrevistaRes')">
+        <option disabled="disabled" value="0" hidden>Elige...</option>
+        <option value="0" {% if datosOp.18 == 0 %}selected{% endif %}>No</option>
+        <option value="1" {% if datosOp.19 == 0 %}selected{% endif %}>Sí</option>
       </select>
    </div>
 
