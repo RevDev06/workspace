@@ -43,7 +43,7 @@
 
    <div class="col-md-12">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control datosCand" name="nombre" id="nombre" minlength="10" maxlength="40"></input>
+      <input type="text" class="form-control datosCand" name="nombre" id="nombre" minlength="3" maxlength="40"></input>
    </div>
 
 
@@ -153,7 +153,7 @@
    <div class="col-md-4">
       <label for="entrevistaReq" class="form-label">Entrevista Requerida</label>
       <select name="entrevistaReq" id="entrevistaReq" class="form-select evaluacion" onchange="mostrarPres('entrevistaReq', 'campoEntrevistaReq', 'campoEntrevistaRes')">
-        <option selected="true" disabled="disabled" value="1" hidden>Elige...</option>
+        <option selected="true" disabled="disabled" value="0" hidden>Elige...</option>
         <option value="0">No</option>
         <option value="1">Sí</option>
       </select>
@@ -337,4 +337,6 @@
     </div>
       
    </form>
+
+   <script src="/static/js/validacion.js"></script>
 {% endblock %}

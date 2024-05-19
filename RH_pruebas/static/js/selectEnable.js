@@ -1,3 +1,37 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Lista de IDs de los selects que requieren mostrarPres
+  const presSelects = [
+      {reqId: 'entrevistaReq', presId: 'campoEntrevistaReq', resId: 'campoEntrevistaRes'},
+      {reqId: 'evalMedicaReq', presId: 'campoEvalMedicaReq', resId: 'campoEvalMedicaRes'},
+      {reqId: 'evalPsicoloReq', presId: 'campoEvalPsicoloReq', resId: 'campoEvalPsicoloRes'},
+      {reqId: 'evalPsicomReq', presId: 'campoEvalPsicomReq', resId: 'campoEvalPsicomRes'},
+      {reqId: 'evalTecniReq', presId: 'campoEvalTecniReq', resId: 'campoEvalTecniRes'},
+      {reqId: 'evalConoReq', presId: 'campoEvalConoReq', resId: 'campoEvalConoRes'},
+      {reqId: 'entrevistaFinReq', presId: 'campoEntrevistaFinReq', resId: 'campoEntrevistaFinRes'}
+  ];
+
+  // Lista de IDs de los selects que requieren mostrarRes
+  const resSelects = [
+      {presId: 'entrevistaPres', campoId: 'campoEntrevistaRes'},
+      {presId: 'evalMedicaPres', campoId: 'campoEvalMedicaRes'},
+      {presId: 'evalPsicoloPres', campoId: 'campoEvalPsicoloRes'},
+      {presId: 'evalPsicomPres', campoId: 'campoEvalPsicomRes'},
+      {presId: 'evalTecniPres', campoId: 'campoEvalTecniRes'},
+      {presId: 'evalConoPres', campoId: 'campoEvalConoRes'},
+      {presId: 'entrevistaFinPres', campoId: 'campoEntrevistaFinRes'}
+  ];
+
+  // Ejecuta mostrarPres para cada select en presSelects
+  presSelects.forEach(function(select) {
+      mostrarPres(select.reqId, select.presId, select.resId);
+  });
+
+  // Ejecuta mostrarRes para cada select en resSelects
+  resSelects.forEach(function(select) {
+      mostrarRes(select.presId, select.campoId);
+  });
+});
+
 function mostrarPres(reqId, presId, resId) {
    var seleccion = document.getElementById(reqId).value;
    var campoPres = document.getElementById(presId);
@@ -30,11 +64,13 @@ function mostrarPres(reqId, presId, resId) {
    if (seleccion === "1") {
      if (campo) {
        campo.disabled = false;
+       campo.required =true;
      }
    } else {
      if (campo) {
        campo.value = 'NO APLICA/NO PRESENTADA';
        campo.disabled = true;
+       campo.required = false;
      }
    }
  }
