@@ -519,7 +519,7 @@ COMMIT;
 -- Estructura de tabla para la tabla `candidatoSeleccionado`
 --
 
-CREATE TABLE IF NOT EXISTS `candidato_seleccionado` (
+/*CREATE TABLE IF NOT EXISTS `candidato_seleccionado` (
   `idCandidato` int(11) NOT NULL,
   `idVacante` int(11) NOT NULL,
   `idRequisicion` int(11) NOT NULL,
@@ -537,4 +537,4 @@ CREATE FUNCTION domicilio(nombre VARCHAR(40), domCalle VARCHAR(40), domNumExtInt
     DECLARE domicilio VARCHAR(200);
     
     
-	END //
+	END //*/
