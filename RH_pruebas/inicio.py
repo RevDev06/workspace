@@ -12,7 +12,7 @@ def home():
 
 @app.route('/idioma')
 def idioma():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idIdioma, descripcion from idioma order by idIdioma')
     datos = cursor.fetchall()
@@ -27,7 +27,7 @@ def idioma_agregar():
 def idioma_fagrega():
     if request.method == 'POST':
         desc = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('insert into idioma (descripcion) values (%s)',(desc))
         conn.commit()
@@ -35,7 +35,7 @@ def idioma_fagrega():
 
 @app.route('/idioma_editar/<string:id>')
 def idioma_editar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idIdioma, descripcion from idioma where idIdioma = %s', (id))
     dato  = cursor.fetchall()
@@ -45,7 +45,7 @@ def idioma_editar(id):
 def idioma_fedita(id):
     if request.method == 'POST':
         desc=request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('update idioma set descripcion=%s where idIdioma=%s', (desc,id))
         conn.commit()
@@ -53,7 +53,7 @@ def idioma_fedita(id):
 
 @app.route('/idioma_borrar/<string:id>')
 def idioma_borrar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('delete from idioma where idIdioma = {0}'.format(id))
     conn.commit()
@@ -63,7 +63,7 @@ def idioma_borrar(id):
 
 @app.route('/habilidad')
 def habilidad():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idHabilidad, descripcion from habilidad order by idHabilidad')
     datos = cursor.fetchall()
@@ -78,7 +78,7 @@ def habilidad_agregar():
 def habilidad_fagrega():
     if request.method == 'POST':
         desc = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('insert into habilidad (descripcion) values (%s)',(desc))
         conn.commit()
@@ -86,7 +86,7 @@ def habilidad_fagrega():
 
 @app.route('/habilidad_editar/<string:id>')
 def habilidad_editar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idHabilidad, descripcion from habilidad where idHabilidad = %s', (id))
     dato  = cursor.fetchall()
@@ -96,7 +96,7 @@ def habilidad_editar(id):
 def habilidad_fedita(id):
     if request.method == 'POST':
         desc=request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('update habilidad set descripcion=%s where idHabilidad=%s', (desc,id))
         conn.commit()
@@ -104,7 +104,7 @@ def habilidad_fedita(id):
 
 @app.route('/habilidad_borrar/<string:id>')
 def habilidad_borrar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('delete from habilidad where idHabilidad = {0}'.format(id))
     conn.commit()
@@ -113,7 +113,7 @@ def habilidad_borrar(id):
 
 @app.route('/gradoAvance')
 def gradoAvance():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idGradoAvance, descripcion from grado_avance order by idGradoAvance')
     datos = cursor.fetchall()
@@ -128,7 +128,7 @@ def grado_agregar():
 def grado_fagrega():
     if request.method == 'POST':
         desc = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('insert into grado_avance (descripcion) values (%s)',(desc))
         conn.commit()
@@ -136,7 +136,7 @@ def grado_fagrega():
 
 @app.route('/grado_editar/<string:id>')
 def grado_editar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idGradoAvance, descripcion from grado_avance where idGradoAvance = %s', (id))
     dato  = cursor.fetchall()
@@ -146,7 +146,7 @@ def grado_editar(id):
 def grado_fedita(id):
     if request.method == 'POST':
         desc=request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('update grado_avance set descripcion=%s where idGradoAvance=%s', (desc,id))
         conn.commit()
@@ -154,7 +154,7 @@ def grado_fedita(id):
 
 @app.route('/grado_borrar/<string:id>')
 def grado_borrar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('delete from grado_avance where idGradoAvance = {0}'.format(id))
     conn.commit()
@@ -162,7 +162,7 @@ def grado_borrar(id):
 
 @app.route('/area')
 def area():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idArea, descripcion from area order by idArea')
     datos = cursor.fetchall()
@@ -170,7 +170,7 @@ def area():
 
 @app.route('/area_editar/<string:id>')
 def area_editar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idArea, descripcion from area where idArea = %s', (id))
     dato  = cursor.fetchall()
@@ -180,7 +180,7 @@ def area_editar(id):
 def area_fedita(id):
     if request.method == 'POST':
         desc=request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('update area set descripcion=%s where idArea=%s', (desc,id))
         conn.commit()
@@ -188,7 +188,7 @@ def area_fedita(id):
 
 @app.route('/area_borrar/<string:id>')
 def area_borrar(id):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('delete from area where idArea = {0}'.format(id))
     conn.commit()
@@ -202,7 +202,7 @@ def area_agregar():
 def area_fagrega():
     if request.method == 'POST':
         desc = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute('insert into area (descripcion) values (%s)',(desc))
         conn.commit()
@@ -212,7 +212,7 @@ def area_fagrega():
 
 @app.route('/puesto')
 def puesto():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('select idPuesto, nomPuesto from puesto order by idPuesto')
@@ -224,7 +224,7 @@ def puesto():
 
 @app.route('/puesto_fdetalle/<string:idP>', methods=['GET'])
 def puesto_fdetalle(idP):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('select idPuesto, nomPuesto from puesto order by idPuesto')
@@ -262,7 +262,7 @@ def puesto_fdetalle(idP):
 
 @app.route('/puesto_borrar/<string:idP>')
 def puesto_borrar(idP):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('delete from puesto where idPuesto = %s',(idP))
     conn.commit()
@@ -275,7 +275,7 @@ def puesto_borrar(idP):
 
 @app.route('/puesto_agrOp2')
 def puesto_agrOp2():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute('select idArea, descripcion from area ')
     datos1 = cursor.fetchall()
@@ -348,7 +348,7 @@ def puesto_fagrega():
         conT = request.form['condicionesTrabajo']
 
 
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute(
     'insert into puesto (codPuesto,idArea,nomPuesto,puestoJefeSup,jornada,remunMensual,prestaciones,descripcionGeneral,'
@@ -391,7 +391,7 @@ def puesto_fagrega():
 
 @app.route('/puesto_editar/<string:idP>')
 def puesto_editar(idP):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('select idPuesto,codPuesto,idArea,nomPuesto,puestoJefeSup,jornada,remunMensual,prestaciones,descripcionGeneral,'
@@ -476,7 +476,7 @@ def puesto_fedita(idP):
         resp = request.form['responsabilidades']
         conT = request.form['condicionesTrabajo']
 
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
 
     cursor.execute('update puesto set codPuesto = %s, idArea = %s, nomPuesto = %s, puestoJefeSup = %s, jornada = %s, '
@@ -519,7 +519,7 @@ def puesto_fedita(idP):
 
 @app.route('/carrera')
 def carrera():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idCarrera, descripcion FROM carrera ORDER BY idCarrera")
     dato = cursor.fetchall()
@@ -533,7 +533,7 @@ def agreCarre():
 def agregarCarrera():
     if request.method == 'POST':
         descrip = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO carrera (descripcion) VALUES (%s)", (descrip))
         conn.commit()
@@ -541,7 +541,7 @@ def agregarCarrera():
 
 @app.route("/carre_editar/<string:idd>")
 def editarcarre(idd):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idCarrera, descripcion FROM carrera WHERE idCarrera=%s", (idd))
     dato = cursor.fetchall()
@@ -551,7 +551,7 @@ def editarcarre(idd):
 def updateCarre(idd):
     if request.method == 'POST':
         descrip = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("UPDATE carrera SET descripcion = %s WHERE idCarrera = %s", (descrip, idd))
         conn.commit()
@@ -559,7 +559,7 @@ def updateCarre(idd):
 
 @app.route("/carre_borrar/<string:idd>")
 def borrarCarre(idd):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("DELETE FROM carrera WHERE idCarrera = %s", (idd))
     conn.commit()
@@ -569,7 +569,7 @@ def borrarCarre(idd):
 
 @app.route("/escolaridad")
 def escolaridad():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idEscolaridad, descripcion FROM escolaridad ORDER BY idEscolaridad")
     datos = cursor.fetchall()
@@ -583,7 +583,7 @@ def agreEsco():
 def agregarEscolaridad():
     if request.method == 'POST':
         descrip = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO escolaridad (descripcion) VALUES (%s)", (descrip))
         conn.commit()
@@ -591,7 +591,7 @@ def agregarEscolaridad():
 
 @app.route("/esco_editar/<string:idd>")
 def editarEsco(idd):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idEscolaridad, descripcion FROM escolaridad WHERE idEscolaridad = %s", (idd))
     dato = cursor.fetchall()
@@ -601,7 +601,7 @@ def editarEsco(idd):
 def updateEsco(idd):
     if request.method == 'POST':
         descrip = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("UPDATE escolaridad SET descripcion = %s WHERE idEscolaridad = %s", (descrip, idd))
         conn.commit()
@@ -609,7 +609,7 @@ def updateEsco(idd):
 
 @app.route("/esco_borrar/<string:idd>")
 def borrarEsco(idd):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("DELETE FROM escolaridad WHERE idEscolaridad = %s", (idd))
     conn.commit()
@@ -618,7 +618,7 @@ def borrarEsco(idd):
 
 @app.route("/edocivil")
 def edocivil():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idEstadoCivil, descripcion FROM estado_civil ORDER BY idEstadoCivil")
     datos = cursor.fetchall()
@@ -632,7 +632,7 @@ def agreEdoCiv():
 def agregarEdoCiv():
     if request.method == 'POST':
         descrip = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO estado_civil (descripcion) VALUES (%s)", (descrip))
         conn.commit()
@@ -640,7 +640,7 @@ def agregarEdoCiv():
 
 @app.route("/edoc_editar/<string:idd>")
 def editarEdociv(idd):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT idEstadoCivil, descripcion FROM estado_civil WHERE idEstadoCivil = %s", (idd))
     dato = cursor.fetchall()
@@ -650,7 +650,7 @@ def editarEdociv(idd):
 def updateEdociv(idd):
     if request.method == 'POST':
         descrip = request.form['descripcion']
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("UPDATE estado_civil SET descripcion = %s WHERE idEstadoCivil = %s", (descrip, idd))
         conn.commit()
@@ -658,7 +658,7 @@ def updateEdociv(idd):
 
 @app.route("/edoc_borrar/<string:idd>")
 def borrarEdociv(idd):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("DELETE FROM estado_civil WHERE idEstadoCivil = %s", (idd))
     conn.commit()
@@ -668,7 +668,7 @@ def borrarEdociv(idd):
 
 @app.route("/candidatos")
 def candidatos():
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT b.folio, a.idVacante, c.nomPuesto, a.candidatoSelecc FROM vacante a, requisicion b, puesto c WHERE a.idRequisicion=b.idRequisicion AND a.idPuesto=c.idPuesto AND b.idPuesto=c.idPuesto")
     datos = cursor.fetchall()
@@ -677,7 +677,7 @@ def candidatos():
 
 @app.route("/capturarCand/<string:idV>")
 def capturarCandidatos(idV):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT b.folio, a.idVacante, c.nomPuesto FROM vacante a, requisicion b, puesto c WHERE a.idRequisicion=b.idRequisicion AND a.idPuesto=c.idPuesto AND b.idPuesto=c.idPuesto AND a.idVacante=%s", (idV))
     datos = cursor.fetchall()
@@ -699,7 +699,7 @@ def capturarCandidatos(idV):
 
 @app.route("/seleccionCand/<string:idV>")
 def verCandidatosVacante(idV):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT b.nomPuesto FROM puesto b, vacante a WHERE a.idVacante=%s AND a.idPuesto=b.idPuesto", (idV))
     nomPuestoVacante = cursor.fetchall()
@@ -712,7 +712,7 @@ def verCandidatosVacante(idV):
 
 @app.route("/candSelec/<string:idC>/<string:idV>")
 def showSelectedCand(idC, idV):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor() 
     cursor.execute("SELECT a.idCandidato, a.idVacante, a.idRequisicion, a.idPuesto, b.folio, c.nomPuesto, a.CURP, a.RFC, a.nombre, a.domCalle, a.domNumExtInt, a.domColonia, a.tel1, a.tel2, a.correoE, a.edad, a.sexo, a.idEstadoCivil, a.idEscolaridad, a.idGradoAvance, a.idCarrera, "
                    "a.entrevSelecReq, a.entrevSelecPresen, a.entrevSelecResult, a.evalMedicaReq, a.evalMedicaPresen, a.evalMedicaResult, a.evalPsicolgReq, a.evalPsicologPresen, a.evalPsicologResult, a.evalPsicometReq, a.evalPsicometPresene, a.evalPsicometResult, "
@@ -740,7 +740,7 @@ def showSelectedCand(idC, idV):
 
 @app.route("/borrarCand/<string:idC>/<string:idV>")
 def borrarCand(idC, idV):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor() 
     cursor.execute("SELECT candidatoSelecc FROM vacante WHERE idVacante=%s", (idV))
     idCandSelec = cursor.fetchall()
@@ -755,7 +755,7 @@ def borrarCand(idC, idV):
 
 @app.route("/seleccionarCandidato/<string:idC>/<string:idV>")
 def seleccionarCandidato(idC, idV):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("UPDATE vacante SET candidatoSelecc = %s WHERE idVacante = %s", (idC, idV))
     conn.commit()
@@ -842,7 +842,7 @@ def capturarCandidato():
         print("entrevistaFinPres:", entreFinPres)
         print("campoEntrevistaFin:", entreFinResul)
 
-        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
         cursor = conn.cursor()
         cursor.execute("SELECT idRequisicion, idPuesto FROM vacante WHERE idVacante = %s", (idVacan))
         ids = cursor.fetchall()
@@ -862,7 +862,7 @@ def capturarCandidato():
 
 @app.route("/detailCand/<string:idC>")
 def detallesCandidato(idC):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("SELECT a.idCandidato, a.idVacante, a.idRequisicion, a.idPuesto, b.folio, c.nomPuesto, a.CURP, a.RFC, a.nombre, a.domCalle, a.domNumExtInt, a.domColonia, a.tel1, a.tel2, a.correoE, a.edad, a.sexo, a.idEstadoCivil, a.idEscolaridad, a.idGradoAvance, a.idCarrera, "
                    "a.entrevSelecReq, a.entrevSelecPresen, a.entrevSelecResult, a.evalMedicaReq, a.evalMedicaPresen, a.evalMedicaResult, a.evalPsicolgReq, a.evalPsicologPresen, a.evalPsicologResult, a.evalPsicometReq, a.evalPsicometPresene, a.evalPsicometResult, "
@@ -887,7 +887,7 @@ def detallesCandidato(idC):
 
 @app.route("/unselectCand/<string:idV>")
 def deseleccionarCandidato(idV):
-    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
     cursor = conn.cursor()
     cursor.execute("UPDATE vacante SET candidatoSelecc=0 WHERE idVacante=%s", (idV))
     conn.commit()
@@ -942,27 +942,28 @@ def editarCandFunct(idC):
         gdoavan = request.form.get('idGradoAvance', '1')
         carre = request.form.get('idCarrera', '1')
 
-        entrereq = request.form.get('entrevistaReq')
-        entrepres = request.form.get('entrevistaPres' )
-        entreresul = request.form.get('campoEntrevista')
-        evalMedicReq = request.form.get('evalMedicaReq')
-        evalMedicPres = request.form.get('evalMedicaPres')
-        evalMedicResul = request.form.get('campoEvalMedica')
-        evalPsicolReq = request.form.get('evalPsicoloReq')
-        evalPsicolPres = request.form.get('evalPsicoloPres')
-        evalPsicolResul = request.form.get('campoEvalPsicolo')
-        evalPsicomReq = request.form.get('evalPsicomReq')
-        evalPsicomPres = request.form.get('evalPsicomPres')
-        evalPsicomResul = request.form.get('campoEvalPsicom')
-        evalTecReq = request.form.get('evalTecniReq')
-        evalTecPres = request.form.get('evalTecniPres')
-        evalTecResul = request.form.get('campoEvalTecni')
-        evalConocReq = request.form.get('evalConoReq')
-        evalConocPres = request.form.get('evalConoPres')
-        evalConocResul = request.form.get('campoEvalCono')
-        entreFinReq = request.form.get('entrevistaFinReq')
-        entreFinPres = request.form.get('entrevistaFinPres')
-        entreFinResul = request.form.get('campoEntrevistaFin')
+
+        entrereq = request.form.get('entrevistaReq', '')
+        entrepres = request.form.get('entrevistaPres', '')
+        entreresul = request.form.get('campoEntrevista', 'NO APLICA/NO PRESENTADA').strip()
+        evalMedicReq = request.form.get('evalMedicaReq', '')
+        evalMedicPres = request.form.get('evalMedicaPres', '')
+        evalMedicResul = request.form.get('campoEvalMedica', 'NO APLICA/NO PRESENTADA').strip()
+        evalPsicolReq = request.form.get('evalPsicoloReq', '')
+        evalPsicolPres = request.form.get('evalPsicoloPres', '')
+        evalPsicolResul = request.form.get('campoEvalPsicolo', 'NO APLICA/NO PRESENTADA').strip()
+        evalPsicomReq = request.form.get('evalPsicomReq', '')
+        evalPsicomPres = request.form.get('evalPsicomPres', '')
+        evalPsicomResul = request.form.get('campoEvalPsicom', 'NO APLICA/NO PRESENTADA').strip()
+        evalTecReq = request.form.get('evalTecniReq', '')
+        evalTecPres = request.form.get('evalTecniPres', '')
+        evalTecResul = request.form.get('campoEvalTecni', 'NO APLICA/NO PRESENTADA').strip()
+        evalConocReq = request.form.get('evalConoReq', '')
+        evalConocPres = request.form.get('evalConoPres', '')
+        evalConocResul = request.form.get('campoEvalCono', 'NO APLICA/NO PRESENTADA').strip()
+        entreFinReq = request.form.get('entrevistaFinReq', '')
+        entreFinPres = request.form.get('entrevistaFinPres', '')
+        entreFinResul = request.form.get('campoEntrevistaFin', 'NO APLICA/NO PRESENTADA').strip()
 
         print("idVacante:", idVacan)
         print("curp:", curp)
