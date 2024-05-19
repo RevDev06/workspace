@@ -735,6 +735,9 @@ def showSelectedCand(idC, idV):
     return render_template("candSelecc.html", datos = datos[0], edocCandSelec = edocCandSelec[0][0], escoCandSelec = escoCandSelec[0][0], gdoavanCandSelec = gdoavanCandSelec[0][0], carreCandSelec = carreCandSelec[0][0], idV=idV)
 
 
+
+
+
 @app.route("/borrarCand/<string:idC>/<string:idV>")
 def borrarCand(idC, idV):
     conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
@@ -801,6 +804,43 @@ def capturarCandidato():
         entreFinPres = request.form.get('entrevistaFinPres', '')
         entreFinResul = request.form.get('campoEntrevistaFin', 'NO APLICA/NO PRESENTADA').strip()
 
+        print("idVacante:", idVacan)
+        print("curp:", curp)
+        print("rfc:", rfc)
+        print("nombre:", nombre)
+        print("calle:", calle)
+        print("numExtInt:", num)
+        print("domColonia:", colonia)
+        print("tel1:", tel1)
+        print("tel2:", tel2)
+        print("correo:", correo)
+        print("Edad:", edad)
+        print("sexo:", sex)
+        print("idEstadoCivil:", edoc)
+        print("idEscolaridad:", esco)
+        print("idGradoAvance:", gdoavan)
+        print("idCarrera:", carre)
+        print("entrevistaReq:", entrereq)
+        print("entrevistaPres:", entrepres)
+        print("campoEntrevista:", entreresul)
+        print("evalMedicaReq:", evalMedicReq)
+        print("evalMedicaPres:", evalMedicPres)
+        print("campoEvalMedica:", evalMedicResul)
+        print("evalPsicoloReq:", evalPsicolReq)
+        print("evalPsicoloPres:", evalPsicolPres)
+        print("campoEvalPsicolo:", evalPsicolResul)
+        print("evalPsicomReq:", evalPsicomReq)
+        print("evalPsicomPres:", evalPsicomPres)
+        print("campoEvalPsicom:", evalPsicomResul)
+        print("evalTecniReq:", evalTecReq)
+        print("evalTecniPres:", evalTecPres)
+        print("campoEvalTecni:", evalTecResul)
+        print("evalConoReq:", evalConocReq)
+        print("evalConoPres:", evalConocPres)
+        print("campoEvalCono:", evalConocResul)
+        print("entrevistaFinReq:", entreFinReq)
+        print("entrevistaFinPres:", entreFinPres)
+        print("campoEntrevistaFin:", entreFinResul)
 
         conn = pymysql.connect(host='localhost', user='root', passwd='', port=3307, db='rh3')
         cursor = conn.cursor()
@@ -808,11 +848,11 @@ def capturarCandidato():
         ids = cursor.fetchall()
 
         cursor.execute("INSERT INTO candidato (idVacante, idRequisicion, idPuesto, CURP, RFC, nombre, domCalle, domNumExtInt, domColonia, tel1, tel2, correoE, edad, sexo, "
-                       "idEstadoCivil, idEscolaridad, idGradoAvance, idCarrera, entrevSelecReq, entrevSelecPresen, entrevSelecResult, evalMedicaReq, evalMedicaPresen, "
-                       "evalMedicaResult, evalPsicolgReq, evalPsicologPresen, evalPsicologResult, evalPsicometReq, evalPsicometPresene, evalPsicometResult, "
-                       "evalTecnicaReq, evalTecnicaPresen, evalTecnicaResult, evalConocReq, evalConocPresen, evalConocResult, entrevFinalReq, entrevFinalPresen, entrevFinalResul) "
-                       "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
-                       (idVacan, ids[0][0], ids[0][1], curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, 
+                        "idEstadoCivil, idEscolaridad, idGradoAvance, idCarrera, entrevSelecReq, entrevSelecPresen, entrevSelecResult, evalMedicaReq, evalMedicaPresen, "
+                        "evalMedicaResult, evalPsicolgReq, evalPsicologPresen, evalPsicologResult, evalPsicometReq, evalPsicometPresene, evalPsicometResult, "
+                        "evalTecnicaReq, evalTecnicaPresen, evalTecnicaResult, evalConocReq, evalConocPresen, evalConocResult, entrevFinalReq, entrevFinalPresen, entrevFinalResul) "
+                        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                        (idVacan, ids[0][0], ids[0][1], curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, 
                         evalMedicReq, evalMedicPres, evalMedicResul, evalPsicolReq, evalPsicolPres, evalPsicolResul, evalPsicomReq, evalPsicomPres, evalPsicomResul, evalTecReq, evalTecPres,
                         evalTecResul, evalConocReq, evalConocPres, evalConocResul, entreFinReq, entreFinPres, entreFinResul))
         conn.commit()
@@ -853,9 +893,122 @@ def deseleccionarCandidato(idV):
     conn.commit()
     return redirect(url_for("candidatos"))
 
+@app.route("/editarCand/<string:idC>/<string:idV>")
+def editarCand(idC, idV):
+    conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+    cursor = conn.cursor()
+    cursor.execute("SELECT b.folio, a.idVacante, c.nomPuesto FROM vacante a, requisicion b, puesto c WHERE a.idRequisicion=b.idRequisicion AND a.idPuesto=c.idPuesto AND b.idPuesto=c.idPuesto AND a.idVacante=%s", (idV))
+    datos = cursor.fetchall()
+    
+    cursor.execute('select idEstadoCivil, descripcion from estado_civil ')
+    datos2 = cursor.fetchall()
 
+    cursor.execute('select idEscolaridad, descripcion from escolaridad ')
+    datos3 = cursor.fetchall()
 
+    cursor.execute('select idGradoAvance, descripcion from grado_avance ')
+    datos4 = cursor.fetchall()
+
+    cursor.execute('select idCarrera, descripcion from carrera ')
+    datos5 = cursor.fetchall()
+
+    cursor.execute("SELECT idVacante, idRequisicion, idPuesto, CURP, RFC, nombre, domCalle, domNumExtInt, domColonia, tel1, tel2, correoE, edad, sexo, "
+                        "idEstadoCivil, idEscolaridad, idGradoAvance, idCarrera, entrevSelecReq, entrevSelecPresen, entrevSelecResult, evalMedicaReq, evalMedicaPresen, "
+                        "evalMedicaResult, evalPsicolgReq, evalPsicologPresen, evalPsicologResult, evalPsicometReq, evalPsicometPresene, evalPsicometResult, "
+                        "evalTecnicaReq, evalTecnicaPresen, evalTecnicaResult, evalConocReq, evalConocPresen, evalConocResult, entrevFinalReq, entrevFinalPresen, entrevFinalResul, idCandidato FROM candidato WHERE idCandidato = %s", (idC)
+                        )
+    datosOp = cursor.fetchall()
+    return render_template("editarCand.html", dato = datos[0], catEdoCivil=datos2, catEscolaridad=datos3, catGradoAvance=datos4, catCarrera=datos5, datosOp=datosOp[0] )
+
+@app.route("/editarCandFunct/<string:idC>", methods=['GET', 'POST'])
+def editarCandFunct(idC):
+    if request.method == "POST":
+        conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='rh3')
+        cursor = conn.cursor()
+        idVacan = request.form.get('idVacante')
+        curp = request.form.get('curp')
+        rfc = request.form.get('rfc')
+        nombre = request.form.get('nombre')
+        calle = request.form.get('Calle')
+        num = request.form.get('numExtInt')
+        colonia = request.form.get('domColonia')
+        tel1 = request.form.get('tel1')
+        tel2 = request.form.get('tel2')
+        correo = request.form.get('correo')
+        edad = request.form.get('Edad')
+        sex = request.form.get('sexo')
+        edoc = request.form.get('idEstadoCivil')
+        esco = request.form.get('idEscolaridad')
+        gdoavan = request.form.get('idGradoAvance', '1')
+        carre = request.form.get('idCarrera', '1')
+
+        entrereq = request.form.get('entrevistaReq')
+        entrepres = request.form.get('entrevistaPres' )
+        entreresul = request.form.get('campoEntrevista')
+        evalMedicReq = request.form.get('evalMedicaReq')
+        evalMedicPres = request.form.get('evalMedicaPres')
+        evalMedicResul = request.form.get('campoEvalMedica')
+        evalPsicolReq = request.form.get('evalPsicoloReq')
+        evalPsicolPres = request.form.get('evalPsicoloPres')
+        evalPsicolResul = request.form.get('campoEvalPsicolo')
+        evalPsicomReq = request.form.get('evalPsicomReq')
+        evalPsicomPres = request.form.get('evalPsicomPres')
+        evalPsicomResul = request.form.get('campoEvalPsicom')
+        evalTecReq = request.form.get('evalTecniReq')
+        evalTecPres = request.form.get('evalTecniPres')
+        evalTecResul = request.form.get('campoEvalTecni')
+        evalConocReq = request.form.get('evalConoReq')
+        evalConocPres = request.form.get('evalConoPres')
+        evalConocResul = request.form.get('campoEvalCono')
+        entreFinReq = request.form.get('entrevistaFinReq')
+        entreFinPres = request.form.get('entrevistaFinPres')
+        entreFinResul = request.form.get('campoEntrevistaFin')
+
+        print("idVacante:", idVacan)
+        print("curp:", curp)
+        print("rfc:", rfc)
+        print("nombre:", nombre)
+        print("calle:", calle)
+        print("numExtInt:", num)
+        print("domColonia:", colonia)
+        print("tel1:", tel1)
+        print("tel2:", tel2)
+        print("correo:", correo)
+        print("Edad:", edad)
+        print("sexo:", sex)
+        print("idEstadoCivil:", edoc)
+        print("idEscolaridad:", esco)
+        print("idGradoAvance:", gdoavan)
+        print("idCarrera:", carre)
+        print("entrevistaReq:", entrereq)
+        print("entrevistaPres:", entrepres)
+        print("campoEntrevista:", entreresul)
+        print("evalMedicaReq:", evalMedicReq)
+        print("evalMedicaPres:", evalMedicPres)
+        print("campoEvalMedica:", evalMedicResul)
+        print("evalPsicoloReq:", evalPsicolReq)
+        print("evalPsicoloPres:", evalPsicolPres)
+        print("campoEvalPsicolo:", evalPsicolResul)
+        print("evalPsicomReq:", evalPsicomReq)
+        print("evalPsicomPres:", evalPsicomPres)
+        print("campoEvalPsicom:", evalPsicomResul)
+        print("evalTecniReq:", evalTecReq)
+        print("evalTecniPres:", evalTecPres)
+        print("campoEvalTecni:", evalTecResul)
+        print("evalConoReq:", evalConocReq)
+        print("evalConoPres:", evalConocPres)
+        print("campoEvalCono:", evalConocResul)
+        print("entrevistaFinReq:", entreFinReq)
+        print("entrevistaFinPres:", entreFinPres)
+        print("campoEntrevistaFin:", entreFinResul)
+        print("idCandidato", idC)
+
+        cursor.execute("UPDATE candidato SET idVacante = %s, CURP = %s, RFC = %s, nombre = %s, domCalle = %s, domNumExtInt = %s, domColonia = %s, tel1 = %s, tel2 = %s, correoE = %s, edad = %s, sexo = %s, idEstadoCivil = %s, idEscolaridad = %s, idGradoAvance = %s, idCarrera = %s, entrevSelecReq = %s, entrevSelecPresen = %s, entrevSelecResult = %s, evalMedicaReq = %s, evalMedicaPresen = %s, evalMedicaResult = %s, evalPsicolgReq = %s, evalPsicologPresen = %s, evalPsicologResult = %s, evalPsicometReq = %s, evalPsicometPresene = %s, evalPsicometResult = %s, evalTecnicaReq = %s, evalTecnicaPresen = %s, evalTecnicaResult = %s, evalConocReq = %s, evalConocPresen = %s, evalConocResult = %s, entrevFinalReq = %s, entrevFinalPresen = %s, entrevFinalResul = %s WHERE idCandidato = %s",
+                                            (idVacan, curp, rfc, nombre, calle, num, colonia, tel1, tel2, correo, edad, sex, edoc, esco, gdoavan, carre, entrereq, entrepres, entreresul, evalMedicReq, evalMedicPres, evalMedicResul,  evalPsicolReq,evalPsicolPres,evalPsicolResul,evalPsicomReq,evalPsicomPres,evalPsicomResul,evalTecReq,evalTecPres,evalTecResul,evalConocReq,evalConocPres,evalConocResul,entreFinReq,entreFinPres, entreFinResul, idC))
+        conn.commit()
+        return redirect(url_for('candidatos'))
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
