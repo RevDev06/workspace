@@ -119,9 +119,9 @@
     <label for="entrevistaReq" class="form-label">Entrevista Requerida</label>
     <select name="entrevistaReq" id="entrevistaReq" class="form-select evaluacion" disabled>
       {% if datos[21] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[21] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -129,27 +129,26 @@
   <div class="col-md-4" id="campoEntrevistaReq">
     <label for="entrevistaPres" class="form-label">Entrevista Presentada</label>
     <select name="entrevistaPres" id="entrevistaPres" class="form-select evaluacion" disabled>
-      {% if datos[22] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
-      {% elif datos[22] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
-      {% endif %}
+     {% if datos[22] == 0 %}
+         <option selected="true" disabled="disabled" value="0" >No</option>
+     {% elif datos[22] == 1 %}
+         <option selected="true" disabled="disabled" value="1" >Sí</option>
+     {% endif %}
     </select>
-  </div>
+ </div>
 
   <div class="col-md-4" id="campoEntrevistaRes">
     <label for="campoEntrevista" class="form-label">Resultado Entrevista</label>
     <input type="text" name="campoEntrevista" id="campoEntrevista" readonly value="{{ datos[23] }}" class="form-control evaluacion" disabled>
   </div>
 
-  {{datos[]}}
   <div class="col-md-4">
     <label for="evalMedicaReq" class="form-label">Evaluacion Medica Requerida</label>
     <select name="evalMedicaReq" id="evalMedicaReq" class="form-select evaluacion" disabled>
       {% if datos[24] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[24] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -158,9 +157,9 @@
     <label for="evalMedicaPres" class="form-label">Evaluacion Medica Presentada</label>
     <select name="evalMedicaPres" id="evalMedicaPres" class="form-select evaluacion" disabled>
       {% if datos[25] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[25] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -175,9 +174,9 @@
     <label for="evalPsicoloReq" class="form-label">Evaluacion Psicologica Requerida</label>
     <select name="evalPsicoloReq" id="evalPsicoloReq" class="form-select evaluacion" disabled>
       {% if datos[27] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[27] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -186,9 +185,9 @@
     <label for="evalPsicoloPres" class="form-label">Evaluacion Psicologica Presentada</label>
     <select name="evalPsicoloPres" id="evalPsicoloPres" class="form-select evaluacion" disabled>
       {% if datos[28] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[28] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -198,28 +197,28 @@
     <input type="text" name="campoEvalPsicolo" id="campoEvalPsicolo" value="{{datos[29]}}" class="form-control evaluacion" disabled>
   </div>
 
-
   <div class="col-md-4">
     <label for="evalPsicomReq" class="form-label">Evaluacion Psicometrica Requerida</label>
     <select name="evalPsicomReq" id="evalPsicomReq" class="form-select evaluacion" disabled>
-      {% if datos[30] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
-      {% elif datos[30] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
-      {% endif %}
+     {% if datos[30] == 0 %}
+         <option selected="true" disabled="disabled" value="0" >No</option>
+     {% elif datos[30] == 1 %}
+         <option selected="true" disabled="disabled" value="1" >Sí</option>
+     {% endif %}
     </select>
-  </div>
+ </div>
 
-  <div class="col-md-4" id="campoEvalPsicomReq">
-    <label for="evalPsicomPres" class="form-label">Evaluacion Psicometrica Presentada</label>
-    <select name="evalPsicomPres" id="evalPsicomPres" class="form-select evaluacion" disabled>
-      {% if datos[31] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
-      {% elif datos[31] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
-      {% endif %}
-    </select>
-  </div>
+
+ <div class="col-md-4" id="campoEvalPsicomReq">
+  <label for="evalPsicomPres" class="form-label">Evaluacion Psicometrica Presentada</label>
+  <select name="evalPsicomPres" id="evalPsicomPres" class="form-select evaluacion" disabled>
+   {% if datos[31] == 0 %}
+       <option selected="true" value="0" >No</option>
+   {% elif datos[31] == 1 %}
+       <option selected="true" value="1" >Sí</option>
+   {% endif %}
+  </select>
+</div>
 
   <div class="col-md-4" id="campoEvalPsicomRes">
     <label for="campoEvalPsicom" class="form-label">Resultado Evaluacion Psicometrica</label>
@@ -231,9 +230,9 @@
     <label for="evalTecniReq" class="form-label">Evaluacion Tecnica Requerida</label>
     <select name="evalTecniReq" id="evalTecniReq" class="form-select evaluacion" disabled>
       {% if datos[33] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[33] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -242,9 +241,9 @@
     <label for="evalTecniPres" class="form-label">Evaluacion Tecnica Presentada</label>
     <select name="evalTecniPres" id="evalTecniPres" class="form-select evaluacion" disabled>
       {% if datos[34] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[34] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -258,9 +257,9 @@
     <label for="evalConoReq" class="form-label">Evaluacion de Conocimientos Requerida</label>
     <select name="evalConoReq" id="evalConoReq" class="form-select evaluacion" disabled>
       {% if datos[36] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[36] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -269,9 +268,9 @@
     <label for="evalConoPres" class="form-label">Evaluacion de Conocimientos Presentada</label>
     <select name="evalConoPres" id="evalConoPres" class="form-select evaluacion" disabled>
       {% if datos[37] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[37] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -286,9 +285,9 @@
     <label for="entrevistaFinReq" class="form-label">Entrevista Final Requerida</label>
     <select name="entrevistaFinReq" id="entrevistaFinReq" class="form-select evaluacion" disabled>
       {% if datos[39] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[39] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -297,9 +296,9 @@
     <label for="entrevistaFinPres" class="form-label">Entrevista Final Presentada</label>
     <select name="entrevistaFinPres" id="entrevistaFinPres" class="form-select evaluacion" disabled>
       {% if datos[40] == 0 %}
-          <option selected="true" disabled="disabled" value="No" >No</option>
+          <option selected="true" disabled="disabled" value="0" >No</option>
       {% elif datos[40] == 1 %}
-          <option selected="true" disabled="disabled" value="Sí" >Sí</option>
+          <option selected="true" disabled="disabled" value="1" >Sí</option>
       {% endif %}
     </select>
   </div>
@@ -315,4 +314,5 @@
 <center><a href="#" class="btn" id="editar">Generar contrato</a></center> <br>
 <center><a href="/unselectCand/{{idV}}" class="btn" id="editar">Deseleccionar candidato</a></center>
 
+<script src="/static/js/validacion.js"></script>
 {% endblock %}
