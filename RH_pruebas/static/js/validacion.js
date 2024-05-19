@@ -87,7 +87,7 @@ function validarEvaluaciones() {
 
 
 function enviar() {
-    preventDefault();
+    event.preventDefault();
     if (validarInputs() && validarCatalogos() && validarEvaluaciones()) {
         alert("Valores válidos.");
         document.formulario.submit();
