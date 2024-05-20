@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Lista de IDs de los selects que requieren mostrarPres
+  
   const presSelects = [
       {reqId: 'entrevistaReq', presId: 'campoEntrevistaReq', resId: 'campoEntrevistaRes'},
       {reqId: 'evalMedicaReq', presId: 'campoEvalMedicaReq', resId: 'campoEvalMedicaRes'},
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {reqId: 'entrevistaFinReq', presId: 'campoEntrevistaFinReq', resId: 'campoEntrevistaFinRes'}
   ];
 
-  // Lista de IDs de los selects que requieren mostrarRes
+  
   const resSelects = [
       {presId: 'entrevistaPres', campoId: 'campoEntrevistaRes'},
       {presId: 'evalMedicaPres', campoId: 'campoEvalMedicaRes'},
@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
       {presId: 'entrevistaFinPres', campoId: 'campoEntrevistaFinRes'}
   ];
 
-  // Ejecuta mostrarPres para cada select en presSelects
+  
   presSelects.forEach(function(select) {
       mostrarPres(select.reqId, select.presId, select.resId);
   });
 
-  // Ejecuta mostrarRes para cada select en resSelects
+  
   resSelects.forEach(function(select) {
       mostrarRes(select.presId, select.campoId);
   });
