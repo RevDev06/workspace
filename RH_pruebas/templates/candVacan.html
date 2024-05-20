@@ -37,19 +37,19 @@
                 </td>
                 <td width="10%">
                   {% if idCandSelec != 0 %}
-                    <center><button class="btn" id="selectCand" disabled style="border: none;">Seleccionar Candidato</button></center>
+                    <center><button class="btn" id="editar" disabled style="border: none;">Seleccionar Candidato</button></center>
                   {% elif idCandSelec == 0 %}
-                    <center><a href="/seleccionarCandidato/{{i.0}}/{{idV}}" class="btn" id="selectCand">Seleccionar Candidato</a></center>
+                    <center><a href="/seleccionarCandidato/{{i.0}}/{{idV}}" class="btn" id="editar">Seleccionar Candidato</a></center>
                   {% endif %}
                 </td>
                 <td width="10%">
-                  <center><a href="/detailCand/{{i.0}}" class="btn" id="detallesCand">Detalles</a></center>
+                  <center><a href="/detailCand/{{i.0}}" class="btn" id="editar">Detalles</a></center>
                 </td>
                 <td width="10%">
-                  <center><a href="/editarCand/{{i.0}}/{{idV}}" class="btn" id="editarCand">Editar</a></center>
+                  <center><a href="/editarCand/{{i.0}}/{{idV}}" class="btn" id="editar">Editar</a></center>
                 </td>
                 <td width="10%">
-                  <center><a href="/borrarCand/{{i.0}}/{{idV}}" class="btn" id="borrarCand">Borrar</a></center>
+                  <center><a href="/borrarCand/{{i.0}}/{{idV}}" class="btn" id="editar">Borrar</a></center>
                 </td>
               </tr>
               {% endfor %}
